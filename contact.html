@@ -677,79 +677,79 @@
               <div class="info-lbl">Email personnel du Maire</div>
               <div class="info-val">
                 <a href="mailto:franck.kpassassi@mairie.bj">franck.kpassassi@mairie.bj</a>
-              </ div >
-            </ div >
-          </ div >
-        </ div >
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!--  Réseaux sociaux -->
-          transition-delay:.2s"
-          < div  class = "info-card-title" > < span > 🌐 </ span > Suivez le Maire </ div >
-            margin-bottom:14px;"
-            < div  class = " info -ico" > 📘 </div>
-            < div  class = "info-text" >
-              < div  class = " info - lbl" > Page Facebook officielle </div>
-              < div  class = "info-val" >
-                < a  href = "https://www.facebook.com/kpassassifranck"  target = "_blank"  rel = "noopener noreferrer" >
+        <!-- Réseaux sociaux -->
+        <div class="info-card green reveal-left" style="transition-delay:.2s">
+          <div class="info-card-title"><span>🌐</span> Suivez le Maire</div>
+          <div class="info-line">
+            <div class="info-ico">📘</div>
+            <div class="info-text">
+              <div class="info-lbl">Page Facebook officielle</div>
+              <div class="info-val">
+                <a href="https://www.facebook.com/kpassassifranck" target="_blank" rel="noopener noreferrer">
                   facebook.com/kpassassifranck
-                </ a >
-              </ div >
-            </ div >
-          </ div >
-          < div  class = "social-grid" >
-            < a  href = "https://www.facebook.com/kpassassifranck"
-               cible = "_blank"  rel = "noopener noreferrer"
-               classe = "social-btn"
-               aria-label = "Page Facebook du Maire Kpassassi" >
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="social-grid">
+            <a href="https://www.facebook.com/kpassassifranck"
+               target="_blank" rel="noopener noreferrer"
+               class="social-btn"
+               aria-label="Page Facebook du Maire Kpassassi">
               📘 Facebook
-            </ a >
-          </ div >
-        </ div >
+            </a>
+          </div>
+        </div>
 
-      </ div > <!-- /contact-info -->
+      </div> <!-- /contact-info -->
 
       <!-- ── FORMULAIRE ── -->
-      < div  class = "contact-form-wrap reveal-right" >
-        < div  class = "form-title" > Envoyez votre message </ div >
-        < p  class = "form-subtitle" >
- color:var(--blue);font-weight:800;"
+      <div class="contact-form-wrap reveal-right">
+        <div class="form-title">Envoyez votre message</div>
+        <p class="form-subtitle">
+          Les champs marqués d'un astérisque (<span style="color:var(--blue);font-weight:800;">*</span>)
           sont obligatoires. Votre message sera transmis directement au cabinet du Maire.
-        </ p >
+        </p>
 
         <!--
           FormSubmit : les messages arrivent à kpassassi@gmail.com
           Documentation : https://formsubmit.co/
         -->
-        < formulaire
-          action = "https://formsubmit.co/kpassass@gmail.com"
-          méthode = "POST"
-          id = "contactForm"
-          ne pas valider
+        <form
+          action="https://formsubmit.co/kpassass@gmail.com"
+          method="POST"
+          id="contactForm"
+          novalidate
         >
           <!-- ── Formulaire anti-spam ── -->
-          < input  type = "text"    name = "_honey"     style = " display:none" :/>none" 
-          < input  type = "hidden"  name = "_captcha"   value = "false"  />
-          < input  type = "hidden"  name = "_subject"   value = "📬 Nouveau message depuis le site officiel — Mairie d'Abomey"  />
-          < input  type = "hidden"  name = "_template"  value = "box"  />
+          <input type="text"    name="_honey"     style="display:none" />
+          <input type="hidden"  name="_captcha"   value="false" />
+          <input type="hidden"  name="_subject"   value="📬 Nouveau message depuis le site officiel — Mairie d'Abomey" />
+          <input type="hidden"  name="_template"  value="box" />
           <!-- Redirection après envoi vers une page de confirmation -->
-          < input  type = "hidden"  name = "_next"      value = "https://www.kpassassi-abomey.bj/merci.html"  />
+          <input type="hidden"  name="_next"      value="https://www.kpassassi-abomey.bj/merci.html" />
 
           <!-- Ligne 1 : Nom + Prénom -->
-          < div  class = "form-row" >
-            < div  class = "form-group" >
-              < label  class = "form-label"  for = "prenom" > Prénom < span  class = "req" > * </ span > </ label >
-              < entrée
-                type = "texte"  id = "prenom"  nom = "prenom"
-                class = "form-input"  placeholder = "Votre prénom"
-                 autocomplétion obligatoire = "prénom"
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="prenom">Prénom <span class="req">*</span></label>
+              <input
+                type="text" id="prenom" name="prenom"
+                class="form-input" placeholder="Votre prénom"
+                required autocomplete="given-name"
               />
-            </ div >
-            < div  class = "form-group" >
-              < label  class = " form-label" for = " nom " > Nom < span class = " req" > * </span> </label>  
-              < entrée
-                type = "texte"  id = "nom"  nom = "nom"
-                class = "form-input"  placeholder = "Votre nom"
-                 autocomplétion obligatoire = "nom-de-famille"
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nom">Nom <span class="req">*</span></label>
+              <input
+                type="text" id="nom" name="nom"
+                class="form-input" placeholder="Votre nom"
+                required autocomplete="family-name"
               />
             </div>
           </div>
