@@ -9,7 +9,7 @@
   <meta name="keywords" content="gouvernance Abomey, équipe municipale Abomey, Placide Houngbadji, Judicaël Comlan Azon, mairie Abomey, transparence commune Abomey, UPR Bénin, Kpassassi gouvernance" />
   <meta name="author" content="Métolé Franck Kpassassi — Mairie d'Abomey" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#0000FF" />
+  <meta name="theme-color" content="#C0272D" />
   <meta name="geo.region" content="BJ-ZO" />
   <meta name="geo.placename" content="Abomey, Bénin" />
   <link rel="canonical" href="https://www.kpassassi-abomey.bj/gouvernance.html" />
@@ -29,39 +29,35 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     /* ================================================
-       VARIABLES
+       VARIABLES — Nouvelle charte graphique officielle
     ================================================ */
     :root {
-      --blue:       #0000FF;
-      --blue-dark:  #0000CC;
-      --blue-deep:  #000099;
-      --blue-abyss: #00005E;
-      --blue-night: #00003A;
-      --blue-a08:   rgba(0,0,255,.08);
-      --blue-a15:   rgba(0,0,255,.15);
-      --blue-a30:   rgba(0,0,255,.30);
-      --blue-a55:   rgba(0,0,255,.55);
-      --gold:       #C9A84C;
-      --gold-lt:    #E2C978;
-      --gold-a25:   rgba(201,168,76,.25);
-      --gold-a50:   rgba(201,168,76,.50);
+      --red:        #C0272D;
+      --red-dark:   #8F1D22;
+      --red-night:  #3C0D0F;
+      --green:      #1A7A5E;
+      --gold:       #CFA040;
+      --gold-lt:    #E5C471;
+      --gold-a25:   rgba(207,160,64,.25);
+      --gold-a50:   rgba(207,160,64,.50);
+      --black-royal:#1A1008;
+      --dark:       #0C0604;
+      --cream:      #F8F2E6;
+      --cream2:     #F1E8D9;
+      --white:      #FFFFFF;
+      --text:       #1A1008;
+      --text-lt:    #4A3C2E;
+      --slate:      #7A6A5A;
+      --nav-h:      76px;
+      --r:          6px;
+      /* couleurs drapeau Bénin inchangées */
       --g-green:    #008751;
       --g-yellow:   #FCD116;
       --g-red:      #E8112D;
-      --dark:       #04091A;
-      --dark2:      #060D22;
-      --cream:      #F4F7FF;
-      --cream2:     #E8EEFF;
-      --white:      #FFFFFF;
-      --text:       #0A1535;
-      --text-lt:    #3A4E72;
-      --slate:      #6680AA;
-      --nav-h:      76px;
-      --r:          6px;
     }
 
     /* ================================================
@@ -70,7 +66,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Raleway', sans-serif;
       background: var(--cream);
       color: var(--text);
       overflow-x: hidden;
@@ -78,15 +74,15 @@
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
     img { max-width: 100%; display: block; }
 
     /* ================================================
-       PRELOADER
+       PRELOADER — Emblème stylisé temporaire
     ================================================ */
     #preloader {
       position: fixed; inset: 0; z-index: 9999;
-      background: var(--blue);
+      background: var(--red);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       transition: opacity .8s ease, visibility .8s ease;
@@ -99,16 +95,70 @@
         repeating-linear-gradient(-45deg, white 0px, white 1px, transparent 1px, transparent 22px);
     }
     .pre-body { position: relative; z-index: 1; text-align: center; }
-    .pre-monogram {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(4rem,10vw,6rem); font-weight: 700;
-      color: white; letter-spacing: .06em; line-height: 1;
-      animation: preGlow 2s ease infinite;
+
+    .pre-emblem {
+      width: 100px;
+      height: 120px;
+      margin: 0 auto 20px;
+      position: relative;
     }
+    .emblem-shield {
+      width: 80px;
+      height: 90px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 100% 15%, 100% 70%, 50% 100%, 0% 70%, 0% 15%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.3);
+    }
+    .emblem-shield::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--red) 50%, var(--green) 50%, var(--green) 100%);
+      clip-path: inherit;
+    }
+    .emblem-star {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      color: var(--gold);
+      text-shadow: 0 0 10px rgba(0,0,0,.5);
+      z-index: 1;
+    }
+    .emblem-crown {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      color: var(--gold);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
+    }
+    .emblem-text {
+      margin-top: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-lt);
+      text-transform: uppercase;
+    }
+
     .pre-title {
       font-size: .6rem; font-weight: 800; letter-spacing: .3em;
       text-transform: uppercase; color: rgba(255,255,255,.55);
       margin-top: 10px; margin-bottom: 30px;
+      font-family: 'Montserrat', sans-serif;
     }
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
     .pre-bar-fill { height: 100%; background: white; border-radius: 2px; animation: preBar 1.6s ease infinite; }
@@ -116,7 +166,6 @@
     .pre-flag span:nth-child(1) { flex: 1; background: var(--g-green); }
     .pre-flag span:nth-child(2) { flex: 1; background: var(--g-yellow); }
     .pre-flag span:nth-child(3) { flex: 1; background: var(--g-red); }
-    @keyframes preGlow { 0%,100%{opacity:.9;text-shadow:0 0 40px rgba(255,255,255,.15)} 50%{opacity:1;text-shadow:0 0 60px rgba(255,255,255,.35)} }
     @keyframes preBar { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
 
     /* ================================================
@@ -130,12 +179,16 @@
       transition: background .45s, box-shadow .45s;
     }
     nav#navbar.scrolled {
-      background: rgba(0,0,20,.97);
+      background: rgba(26,16,8,.97);
       backdrop-filter: blur(20px) saturate(1.5);
-      box-shadow: 0 1px 0 var(--blue-a30), 0 6px 40px rgba(0,0,0,.55);
+      box-shadow: 0 1px 0 rgba(207,160,64,.3), 0 6px 40px rgba(0,0,0,.55);
     }
     .nav-brand { display: flex; flex-direction: column; gap: 5px; text-decoration: none; }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; font-weight: 700; color: white; letter-spacing: .04em; white-space: nowrap; }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem; font-weight: 700;
+      color: white; letter-spacing: .06em; white-space: nowrap;
+    }
     .nav-logo strong { color: var(--gold); }
     .nav-tricolor { display: flex; height: 3px; width: 100%; gap: 1px; }
     .nav-tricolor span:nth-child(1) { flex: 1; background: var(--g-green); border-radius: 1px 0 0 1px; }
@@ -145,13 +198,15 @@
     .nav-links a {
       color: rgba(255,255,255,.75); text-decoration: none;
       font-size: .72rem; font-weight: 700; letter-spacing: .14em;
-      text-transform: uppercase; position: relative; padding-bottom: 3px; transition: color .25s;
+      text-transform: uppercase; position: relative; padding-bottom: 3px;
+      transition: color .25s;
+      font-family: 'Montserrat', sans-serif;
     }
     .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: var(--gold); border-radius: 1px; transition: width .3s; }
     .nav-links a:hover, .nav-links a.active { color: white; }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
     .nav-cta {
-      background: white !important; color: var(--blue) !important;
+      background: white !important; color: var(--red) !important;
       padding: 9px 22px !important; border-radius: var(--r) !important;
       font-weight: 900 !important; letter-spacing: .1em !important;
       box-shadow: 0 4px 20px rgba(255,255,255,.18) !important; transition: all .3s !important;
@@ -165,8 +220,8 @@
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
     .mobile-menu {
       position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 998;
-      background: rgba(0,0,15,.98); backdrop-filter: blur(20px);
-      border-top: 2px solid var(--blue-a30); display: none; flex-direction: column;
+      background: rgba(26,16,8,.98); backdrop-filter: blur(20px);
+      border-top: 2px solid rgba(207,160,64,.3); display: none; flex-direction: column;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
@@ -174,15 +229,16 @@
       font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
       padding: 18px 5%; border-bottom: 1px solid rgba(255,255,255,.05);
       display: flex; align-items: center; gap: 12px; transition: color .2s, background .2s;
+      font-family: 'Montserrat', sans-serif;
     }
     .mobile-menu a::before { content: '›'; color: var(--gold); font-size: 1.2rem; }
-    .mobile-menu a:hover { color: white; background: var(--blue-a08); }
+    .mobile-menu a:hover { color: white; background: rgba(192,39,45,.08); }
 
     /* ================================================
-       PAGE HERO BANNER
+       PAGE HERO BANNER — ROUGE ABOMEY
     ================================================ */
     .page-hero {
-      min-height: 540px; background: var(--blue);
+      min-height: 540px; background: var(--red);
       position: relative; overflow: hidden;
       display: flex; align-items: flex-end;
       padding: calc(var(--nav-h) + 80px) 5% 80px;
@@ -190,9 +246,9 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(80,80,255,.55) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(0,0,80,.7) 0%, transparent 55%),
-        linear-gradient(155deg, #1515FF 0%, #0000EE 22%, #0000CC 50%, #00008B 78%, #00005E 100%);
+        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(255,80,80,.55) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,16,8,.7) 0%, transparent 55%),
+        linear-gradient(155deg, #D02A30 0%, #C0272D 22%, #8F1D22 50%, #6A1519 78%, #3C0D0F 100%);
     }
     .page-hero-pattern {
       position: absolute; inset: 0; opacity: .045; pointer-events: none;
@@ -202,13 +258,14 @@
     }
     .page-hero-vignette {
       position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
-      background: linear-gradient(transparent, rgba(0,0,60,.6)); pointer-events: none;
+      background: linear-gradient(transparent, rgba(26,16,8,.6)); pointer-events: none;
     }
     .page-hero-inner { position: relative; z-index: 2; max-width: 1200px; width: 100%; }
     .page-hero-breadcrumb {
       display: flex; align-items: center; gap: 10px;
       font-size: .62rem; font-weight: 700; letter-spacing: .2em;
       text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 26px;
+      font-family: 'Montserrat', sans-serif;
     }
     .page-hero-breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .25s; }
     .page-hero-breadcrumb a:hover { color: rgba(255,255,255,.9); }
@@ -217,15 +274,19 @@
       display: inline-flex; align-items: center; gap: 12px;
       font-size: .62rem; font-weight: 900; letter-spacing: .26em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+      font-family: 'Montserrat', sans-serif;
     }
     .page-hero-label::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
     .page-hero-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: clamp(2.8rem, 5.5vw, 5.2rem);
       font-weight: 700; color: white; line-height: 1; margin-bottom: 16px;
     }
     .page-hero-title em { font-style: italic; color: var(--gold); display: block; }
-    .page-hero-sub { font-size: .88rem; color: rgba(255,255,255,.65); max-width: 560px; line-height: 1.85; margin-bottom: 40px; }
+    .page-hero-sub {
+      font-size: .88rem; color: rgba(255,255,255,.65); max-width: 560px; line-height: 1.85; margin-bottom: 40px;
+      font-family: 'Raleway', sans-serif;
+    }
     .page-hero-sub strong { color: white; font-weight: 600; }
 
     /* Piliers gouvernance dans hero */
@@ -235,6 +296,7 @@
       background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
       color: rgba(255,255,255,.85); padding: 8px 16px; border-radius: 30px;
       font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* ================================================
@@ -261,33 +323,59 @@
     .s-label {
       display:inline-flex; align-items:center; gap:12px;
       font-size:.62rem; font-weight:900; letter-spacing:.26em;
-      text-transform:uppercase; color:var(--blue); margin-bottom:14px;
+      text-transform:uppercase; color:var(--red); margin-bottom:14px;
+      font-family: 'Montserrat', sans-serif;
     }
-    .s-label::before { content:''; width:28px; height:2px; background:var(--blue); }
+    .s-label::before { content:''; width:28px; height:2px; background:var(--red); }
     .s-label-lt {
       display:inline-flex; align-items:center; gap:12px;
       font-size:.62rem; font-weight:900; letter-spacing:.26em;
       text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+      font-family: 'Montserrat', sans-serif;
     }
     .s-label-lt::before { content:''; width:28px; height:2px; background:var(--gold); }
     .s-title {
-      font-family:'Cormorant Garamond',serif;
+      font-family:'Cinzel',serif;
       font-size:clamp(2.1rem,4vw,3.5rem); font-weight:700; color:var(--text); line-height:1.1; margin-bottom:14px;
     }
     .s-title-lt {
-      font-family:'Cormorant Garamond',serif;
+      font-family:'Cinzel',serif;
       font-size:clamp(2.1rem,4vw,3.5rem); font-weight:700; color:white; line-height:1.1; margin-bottom:14px;
     }
     .s-title em, .s-title-lt em { font-style:italic; color:var(--gold); }
-    .s-line { width:54px; height:3px; background:linear-gradient(90deg,var(--blue),var(--gold)); border-radius:2px; margin-bottom:52px; }
-    .s-line-lt { width:54px; height:3px; background:linear-gradient(90deg,var(--gold),rgba(201,168,76,0)); border-radius:2px; margin-bottom:52px; }
+    .s-line { width:54px; height:3px; background:linear-gradient(90deg,var(--red),var(--gold)); border-radius:2px; margin-bottom:52px; }
+    .s-line-lt { width:54px; height:3px; background:linear-gradient(90deg,var(--gold),rgba(207,160,64,0)); border-radius:2px; margin-bottom:52px; }
+    .s-line-c, .s-line-lt-c { margin-left:auto; margin-right:auto; }
 
     /* BOUTONS */
-    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:white; color:var(--blue); padding:15px 34px; border-radius:var(--r); text-decoration:none; font-size:.72rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; box-shadow:0 10px 38px rgba(0,0,0,.28); transition:all .3s; }
+    .btn-primary {
+      display:inline-flex; align-items:center; gap:8px;
+      background:white; color:var(--red);
+      padding:15px 34px; border-radius:var(--r);
+      text-decoration:none; font-size:.72rem; font-weight:900;
+      letter-spacing:.14em; text-transform:uppercase;
+      box-shadow:0 10px 38px rgba(0,0,0,.28); transition:all .3s;
+      font-family: 'Montserrat', sans-serif;
+    }
     .btn-primary:hover { transform:translateY(-3px); box-shadow:0 20px 55px rgba(0,0,0,.38); }
-    .btn-gold { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--gold-lt); border:2px solid var(--gold); padding:15px 34px; border-radius:var(--r); text-decoration:none; font-size:.72rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; transition:all .3s; }
+    .btn-gold {
+      display:inline-flex; align-items:center; gap:8px;
+      background:transparent; color:var(--gold-lt);
+      border:2px solid var(--gold); padding:15px 34px;
+      border-radius:var(--r); text-decoration:none;
+      font-size:.72rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; transition:all .3s;
+      font-family: 'Montserrat', sans-serif;
+    }
     .btn-gold:hover { background:var(--gold); color:var(--dark); transform:translateY(-3px); }
-    .btn-blue { display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:white; padding:15px 34px; border-radius:var(--r); text-decoration:none; font-size:.72rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; box-shadow:0 10px 38px var(--blue-a55); transition:all .3s; }
+    .btn-blue {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--red); color:white;
+      padding:15px 34px; border-radius:var(--r);
+      text-decoration:none; font-size:.72rem; font-weight:900;
+      letter-spacing:.14em; text-transform:uppercase;
+      box-shadow:0 10px 38px rgba(192,39,45,.55); transition:all .3s;
+      font-family: 'Montserrat', sans-serif;
+    }
     .btn-blue:hover { transform:translateY(-3px); }
 
     /* ================================================
@@ -296,7 +384,7 @@
     #equipe { background: var(--cream); }
 
     .equipe-intro { max-width: 780px; margin-bottom: 68px; }
-    .equipe-intro p { font-size: .9rem; line-height: 2; color: var(--text-lt); margin-bottom: 14px; }
+    .equipe-intro p { font-size: .9rem; line-height: 2; color: var(--text-lt); margin-bottom: 14px; font-family: 'Raleway', sans-serif; }
     .equipe-intro p strong { color: var(--text); }
 
     /* Trombinoscope */
@@ -313,8 +401,8 @@
     }
     .membre-card:hover { transform: translateY(-8px); box-shadow: 0 24px 65px rgba(0,0,0,.15); }
     .membre-card.maire { border-bottom-color: var(--gold); }
-    .membre-card.adj1  { border-bottom-color: var(--blue); }
-    .membre-card.adj2  { border-bottom-color: var(--g-green); }
+    .membre-card.adj1  { border-bottom-color: var(--red); }
+    .membre-card.adj2  { border-bottom-color: var(--green); }
 
     .membre-photo {
       width: 100%; height: 360px;
@@ -331,14 +419,15 @@
       background: rgba(0,0,0,.72); backdrop-filter: blur(8px);
       color: white; padding: 6px 14px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
     }
     .membre-card.maire .membre-photo-badge { background: var(--gold); color: var(--dark); }
-    .membre-card.adj1  .membre-photo-badge { background: var(--blue); }
-    .membre-card.adj2  .membre-photo-badge { background: var(--g-green); }
+    .membre-card.adj1  .membre-photo-badge { background: var(--red); }
+    .membre-card.adj2  .membre-photo-badge { background: var(--green); }
 
     .membre-info { padding: 28px 26px 24px; }
     .membre-nom {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 1.5rem; font-weight: 700; color: var(--text);
       margin-bottom: 5px; line-height: 1.15;
     }
@@ -346,20 +435,22 @@
     .membre-titre {
       font-size: .68rem; font-weight: 800; letter-spacing: .14em;
       text-transform: uppercase; margin-bottom: 14px;
+      font-family: 'Montserrat', sans-serif;
     }
     .membre-card.maire .membre-titre { color: var(--gold); }
-    .membre-card.adj1  .membre-titre { color: var(--blue); }
-    .membre-card.adj2  .membre-titre { color: var(--g-green); }
-    .membre-desc { font-size: .82rem; line-height: 1.85; color: var(--text-lt); margin-bottom: 18px; }
+    .membre-card.adj1  .membre-titre { color: var(--red); }
+    .membre-card.adj2  .membre-titre { color: var(--green); }
+    .membre-desc { font-size: .82rem; line-height: 1.85; color: var(--text-lt); margin-bottom: 18px; font-family: 'Raleway', sans-serif; }
 
     .membre-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .membre-tag {
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
       padding: 4px 11px; border-radius: 30px; border: 1px solid;
+      font-family: 'Montserrat', sans-serif;
     }
     .membre-card.maire .membre-tag { background: var(--gold-a25); border-color: var(--gold-a50); color: var(--gold); }
-    .membre-card.adj1  .membre-tag { background: var(--blue-a08); border-color: var(--blue-a30); color: var(--blue); }
-    .membre-card.adj2  .membre-tag { background: rgba(0,135,81,.08); border-color: rgba(0,135,81,.3); color: var(--g-green); }
+    .membre-card.adj1  .membre-tag { background: rgba(192,39,45,.08); border-color: rgba(192,39,45,.3); color: var(--red); }
+    .membre-card.adj2  .membre-tag { background: rgba(26,122,94,.08); border-color: rgba(26,122,94,.3); color: var(--green); }
 
     /* ================================================
        SECTION 2 — PRINCIPES DE GOUVERNANCE
@@ -370,14 +461,14 @@
     .principe-photo {
       width: 100%; height: 520px;
       object-fit: cover; object-position: center;
-      border-radius: var(--r); box-shadow: 16px 16px 0 var(--blue);
+      border-radius: var(--r); box-shadow: 16px 16px 0 var(--red);
     }
 
     .principe-list { display: flex; flex-direction: column; gap: 20px; }
     .principe-item {
       display: flex; gap: 20px; align-items: flex-start;
       background: var(--cream); border-radius: var(--r);
-      padding: 22px 20px; border-left: 4px solid var(--blue);
+      padding: 22px 20px; border-left: 4px solid var(--red);
       transition: transform .3s, box-shadow .3s;
     }
     .principe-item:hover { transform: translateX(6px); box-shadow: 0 8px 30px rgba(0,0,0,.08); }
@@ -391,14 +482,14 @@
     }
     .principe-text {}
     .principe-titre { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: 7px; }
-    .principe-desc { font-size: .8rem; line-height: 1.85; color: var(--text-lt); }
+    .principe-desc { font-size: .8rem; line-height: 1.85; color: var(--text-lt); font-family: 'Raleway', sans-serif; }
 
     /* ================================================
        SECTION 3 — GOUVERNANCE PARTICIPATIVE
     ================================================ */
-    #participative { background: var(--dark2); }
+    #participative { background: var(--dark); }
     .part-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-    .part-text p { font-size: .9rem; line-height: 2; color: rgba(255,255,255,.62); margin-bottom: 18px; }
+    .part-text p { font-size: .9rem; line-height: 2; color: rgba(255,255,255,.62); margin-bottom: 18px; font-family: 'Raleway', sans-serif; }
     .part-text p strong { color: white; }
     .part-text p em { color: var(--gold); font-style: italic; }
 
@@ -410,13 +501,13 @@
     }
     .part-step:last-child { border-bottom: none; }
     .part-step-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 2.2rem; font-weight: 700; color: var(--gold);
       line-height: 1; flex-shrink: 0; min-width: 42px;
     }
     .part-step-info {}
-    .part-step-titre { font-size: .84rem; font-weight: 700; color: white; margin-bottom: 5px; }
-    .part-step-desc { font-size: .78rem; line-height: 1.75; color: rgba(255,255,255,.48); }
+    .part-step-titre { font-size: .84rem; font-weight: 700; color: white; margin-bottom: 5px; font-family: 'Montserrat', sans-serif; }
+    .part-step-desc { font-size: .78rem; line-height: 1.75; color: rgba(255,255,255,.48); font-family: 'Raleway', sans-serif; }
 
     .part-photo {
       width: 100%; height: 520px;
@@ -437,49 +528,51 @@
       background: white; border-radius: var(--r);
       padding: 36px 28px;
       box-shadow: 0 4px 24px rgba(0,0,0,.06);
-      border-top: 4px solid var(--blue);
+      border-top: 4px solid var(--red);
       transition: all .35s; position: relative; overflow: hidden;
     }
     .reforme-card:hover { transform: translateY(-7px); box-shadow: 0 22px 60px rgba(0,0,0,.12); }
     .reforme-card.gold { border-top-color: var(--gold); }
-    .reforme-card.green { border-top-color: var(--g-green); }
+    .reforme-card.green { border-top-color: var(--green); }
     .reforme-card::after {
       content: ''; position: absolute; bottom: 0; right: 0;
       width: 80px; height: 80px; border-radius: 80px 0 0 0;
-      background: var(--blue-a08); pointer-events: none;
+      background: rgba(192,39,45,.06); pointer-events: none;
     }
     .reforme-card.gold::after { background: var(--gold-a25); }
-    .reforme-card.green::after { background: rgba(0,135,81,.06); }
+    .reforme-card.green::after { background: rgba(26,122,94,.06); }
 
     .reforme-ico { font-size: 2.4rem; margin-bottom: 18px; }
     .reforme-date {
       font-size: .6rem; font-weight: 900; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
     }
     .reforme-card.gold .reforme-date { color: var(--gold); }
-    .reforme-card.green .reforme-date { color: var(--g-green); }
+    .reforme-card.green .reforme-date { color: var(--green); }
     .reforme-titre {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 1.42rem; font-weight: 700; color: var(--text);
       margin-bottom: 12px; line-height: 1.2;
     }
-    .reforme-desc { font-size: .83rem; line-height: 1.9; color: var(--text-lt); margin-bottom: 18px; }
+    .reforme-desc { font-size: .83rem; line-height: 1.9; color: var(--text-lt); margin-bottom: 18px; font-family: 'Raleway', sans-serif; }
     .reforme-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: var(--blue-a08); border: 1px solid var(--blue-a15);
-      color: var(--blue); padding: 4px 12px; border-radius: 30px;
+      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.15);
+      color: var(--red); padding: 4px 12px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
     }
     .reforme-card.gold .reforme-tag { background: var(--gold-a25); border-color: var(--gold-a50); color: var(--gold); }
-    .reforme-card.green .reforme-tag { background: rgba(0,135,81,.08); border-color: rgba(0,135,81,.25); color: var(--g-green); }
+    .reforme-card.green .reforme-tag { background: rgba(26,122,94,.08); border-color: rgba(26,122,94,.25); color: var(--green); }
 
     /* ================================================
        SECTION 5 — CHIFFRES CLÉS
     ================================================ */
     #chiffres {
-      background: var(--blue);
+      background: var(--red);
       background-image:
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(30,30,255,.45), transparent),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(180,30,30,.45), transparent),
         repeating-linear-gradient(45deg, rgba(255,255,255,.018) 0px, rgba(255,255,255,.018) 1px, transparent 1px, transparent 30px);
       padding: 100px 5%;
     }
@@ -493,17 +586,18 @@
     }
     .chiffre-card:hover { background: rgba(255,255,255,.16); }
     .chiffre-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 3.5rem; font-weight: 700; color: var(--gold); line-height: 1;
     }
     .chiffre-unit {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 1.8rem; font-weight: 700; color: var(--gold-lt);
     }
     .chiffre-lbl {
       font-size: .65rem; font-weight: 700; letter-spacing: .16em;
       text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 10px;
       line-height: 1.45;
+      font-family: 'Montserrat', sans-serif;
     }
     .chiffre-ico { font-size: 1.6rem; margin-bottom: 14px; }
 
@@ -511,14 +605,14 @@
        SECTION 6 — MANTRA
     ================================================ */
     #mantra-gov {
-      background: var(--blue-abyss); padding: 100px 5%; position: relative; overflow: hidden;
+      background: var(--red-night); padding: 100px 5%; position: relative; overflow: hidden;
     }
     #mantra-gov::before {
       content: '\2039\203A'; position: absolute; right: -1%; top: 50%; transform: translateY(-50%);
       font-family: 'Cormorant Garamond', serif; font-size: 28rem; line-height: 1;
       color: rgba(255,255,255,.02); pointer-events: none; user-select: none;
     }
-    .mantra-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,0,255,.18), transparent); }
+    .mantra-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(192,39,45,.18), transparent); }
     .mantra-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
     .mantra-line-v { width: 1px; height: 62px; background: linear-gradient(180deg, transparent, var(--gold), transparent); margin: 0 auto 42px; }
     .mantra-quote {
@@ -528,7 +622,10 @@
     }
     .mantra-quote strong { color: var(--gold); font-style: normal; font-weight: 700; }
     .mantra-line-h { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 20px; }
-    .mantra-author { font-size: .67rem; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .mantra-author {
+      font-size: .67rem; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.5);
+      font-family: 'Montserrat', sans-serif;
+    }
 
     /* ================================================
        SECTION 7 — PARTENARIATS
@@ -537,21 +634,22 @@
     .part-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
     .part-card {
       background: var(--cream); border-radius: var(--r);
-      padding: 32px 26px; border: 1px solid var(--blue-a15);
+      padding: 32px 26px; border: 1px solid rgba(192,39,45,.15);
       transition: all .35s;
     }
-    .part-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,.1); border-color: var(--blue); }
+    .part-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,.1); border-color: var(--red); }
     .part-card-ico { font-size: 2.2rem; margin-bottom: 16px; }
     .part-card-nom {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: 1.28rem; font-weight: 700; color: var(--text); margin-bottom: 10px;
     }
-    .part-card-desc { font-size: .82rem; line-height: 1.85; color: var(--text-lt); margin-bottom: 16px; }
+    .part-card-desc { font-size: .82rem; line-height: 1.85; color: var(--text-lt); margin-bottom: 16px; font-family: 'Raleway', sans-serif; }
     .part-card-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: var(--blue-a08); border: 1px solid var(--blue-a15);
-      color: var(--blue); padding: 4px 12px; border-radius: 30px;
+      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.15);
+      color: var(--red); padding: 4px 12px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* ================================================
@@ -562,39 +660,51 @@
     }
     .cta-gov-inner { max-width: 860px; margin: 0 auto; text-align: center; }
     .cta-gov-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Cinzel', serif;
       font-size: clamp(2.2rem, 4.5vw, 4rem);
       font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.05;
     }
     .cta-gov-title em { color: var(--gold); font-style: italic; }
-    .cta-gov-sub { font-size: .9rem; color: rgba(255,255,255,.52); margin-bottom: 44px; line-height: 1.8; }
+    .cta-gov-sub { font-size: .9rem; color: rgba(255,255,255,.52); margin-bottom: 44px; line-height: 1.8; font-family: 'Raleway', sans-serif; }
     .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     /* ================================================
        FOOTER
     ================================================ */
-    footer { background: var(--dark); border-top: 1px solid var(--blue-a15); padding: 72px 5% 30px; }
+    footer { background: var(--black-royal); border-top: 1px solid rgba(207,160,64,.15); padding: 72px 5% 30px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
     .footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 6px; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 6px; }
     .footer-logo strong { color: var(--gold); }
     .footer-flag { display: flex; height: 3px; width: 80px; margin-bottom: 16px; gap: 1px; }
     .footer-flag span:nth-child(1) { flex: 1; background: var(--g-green); border-radius: 1px 0 0 1px; }
     .footer-flag span:nth-child(2) { flex: 1; background: var(--g-yellow); }
     .footer-flag span:nth-child(3) { flex: 1; background: var(--g-red); border-radius: 0 1px 1px 0; }
-    .footer-brand p { font-size: .84rem; line-height: 1.88; color: rgba(255,255,255,.38); max-width: 295px; margin-bottom: 22px; }
+    .footer-brand p { font-size: .84rem; line-height: 1.88; color: rgba(255,255,255,.38); max-width: 295px; margin-bottom: 22px; font-family: 'Raleway', sans-serif; }
     .footer-social { display: flex; gap: 10px; }
-    .fsocial { display:inline-flex; align-items:center; gap:7px; background:var(--blue-a08); border:1px solid var(--blue-a30); color:rgba(255,255,255,.72); padding:10px 16px; border-radius:var(--r); text-decoration:none; font-size:.73rem; font-weight:700; transition:all .3s; }
-    .fsocial:hover { background:var(--blue); border-color:var(--blue); color:white; }
-    .footer-col h4 { font-size:.62rem; font-weight:900; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; }
+    .fsocial {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(192,39,45,.08); border:1px solid rgba(207,160,64,.3);
+      color:rgba(255,255,255,.72); padding:10px 16px; border-radius:var(--r);
+      text-decoration:none; font-size:.73rem; font-weight:700; transition:all .3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .fsocial:hover { background:var(--red); border-color:var(--red); color:white; }
+    .footer-col h4 { font-size:.62rem; font-weight:900; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-family: 'Montserrat', sans-serif; }
     .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .footer-col ul li a { color:rgba(255,255,255,.42); text-decoration:none; font-size:.83rem; transition:color .25s; display:flex; align-items:center; gap:7px; }
+    .footer-col ul li a { color:rgba(255,255,255,.42); text-decoration:none; font-size:.83rem; transition:color .25s; display:flex; align-items:center; gap:7px; font-family: 'Raleway', sans-serif; }
     .footer-col ul li a::before { content:'›'; color:var(--gold); }
     .footer-col ul li a:hover { color:rgba(255,255,255,.82); }
     .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:12px; }
-    .footer-copy { font-size:.73rem; color:rgba(255,255,255,.22); }
+    .footer-copy { font-size:.73rem; color:rgba(255,255,255,.22); font-family: 'Raleway', sans-serif; }
     .footer-badges { display:flex; gap:10px; flex-wrap:wrap; }
-    .footer-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold-a25); border:1px solid var(--gold-a50); padding:6px 14px; border-radius:30px; font-size:.62rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+    .footer-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(207,160,64,.25); border:1px solid rgba(207,160,64,.5);
+      padding:6px 14px; border-radius:30px;
+      font-size:.62rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);
+      font-family: 'Montserrat', sans-serif;
+    }
 
     /* ================================================
        RESPONSIVE
@@ -608,7 +718,7 @@
     @media (max-width: 900px) {
       .trombino-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .principes-grid { grid-template-columns: 1fr; gap: 50px; }
-      .principe-photo { height: 360px; box-shadow: 10px 10px 0 var(--blue); }
+      .principe-photo { height: 360px; box-shadow: 10px 10px 0 var(--red); }
       .part-grid { grid-template-columns: 1fr; gap: 50px; }
       .part-photo { height: 380px; }
       .reformes-grid { grid-template-columns: 1fr 1fr; }
@@ -635,7 +745,14 @@
 <div id="preloader" role="status" aria-label="Chargement de la gouvernance">
   <div class="pre-bg-lines" aria-hidden="true"></div>
   <div class="pre-body">
-    <div class="pre-monogram" aria-hidden="true">MFK</div>
+    <!-- Emblème stylisé en attendant le blason SVG officiel -->
+    <div class="pre-emblem">
+      <div class="emblem-crown">♛</div>
+      <div class="emblem-shield">
+        <div class="emblem-star">★</div>
+      </div>
+    </div>
+    <div class="emblem-text">Blason Officiel</div>
     <div class="pre-title">Site Officiel du Maire de la Commune d'Abomey</div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
