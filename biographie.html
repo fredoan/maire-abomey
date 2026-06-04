@@ -20,7 +20,8 @@
   <meta property="og:url" content="https://www.franckkpassassi.com/biographie.html" />
   <meta property="og:title" content="Biographie — Métolé Franck Kpassassi, Maire d'Abomey" />
   <meta property="og:description" content="Né à Abomey, Ingénieur en Ingénierie Énergétique et Électrique, élu Maire de la Commune d'Abomey en 2026. Parcours complet, formation, vision et engagement." />
-  <meta property="og:image" content="https://www.franckkpassassi.com/pha.jpg" />
+  <meta property="og:image" content="https://www.franckkpassassi.com/blason.jpg" />
+  <meta property="og:image:alt" content="Blason officiel de la Commune d'Abomey" />
   <meta property="og:locale" content="fr_BJ" />
   <meta property="og:site_name" content="Site Officiel du Maire de la Commune d'Abomey" />
 
@@ -28,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Biographie — Métolé Franck Kpassassi, Maire d'Abomey" />
   <meta name="twitter:description" content="Biographie officielle et complète du Maire de la Commune d'Abomey — Bénin." />
-  <meta name="twitter:image" content="https://www.kpassassi-abomey.bj/pha.jpg" />
+  <meta name="twitter:image" content="https://www.franckkpassassi.com/blason.jpg" />
 
   <!-- ===== FONTS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,7 +48,7 @@
     "birthPlace": { "@type": "Place", "name": "Abomey, Bénin" },
     "description": "Ingénieur en Ingénierie Énergétique et Électrique, Maître en Énergie Renouvelable et Efficacité, Gestionnaire de Projets certifié. Élu Maire de la Commune d'Abomey en 2026.",
     "url": "https://www.franckkpassassi.com/biographie.html",
-    "image": "https://www.franckkpassassi.com/pha.jpg",
+    "image": "https://www.franckkpassassi.com/blason.jpg",
     "email": ["villeabomey@gmail.com","franck.kpassassi@mairie.bj"],
     "sameAs": ["https://www.facebook.com/kpassassifranck"],
     "knowsAbout": ["Ingénierie Énergétique et Électrique","Énergie Renouvelable et Efficacité","Gestion de Projets","Développement Local","Gouvernance Municipale","Patrimoine Culturel"]
@@ -79,7 +80,6 @@
       --slate:      #7A6A5A;
       --nav-h:      76px;
       --r:          6px;
-      /* couleurs drapeau Bénin conservées */
       --g-green:    #008751;
       --g-yellow:   #FCD116;
       --g-red:      #E8112D;
@@ -103,7 +103,7 @@
     img { max-width: 100%; display: block; }
 
     /* ================================================
-       PRELOADER — Emblème stylisé temporaire
+       PRELOADER — Blason officiel
     ================================================ */
     #preloader {
       position: fixed; inset: 0; z-index: 9999;
@@ -121,68 +121,30 @@
     }
     .pre-body { position: relative; z-index: 1; text-align: center; }
 
-    .pre-emblem {
-      width: 100px;
-      height: 120px;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-    .emblem-shield {
-      width: 80px;
-      height: 90px;
-      background: var(--gold);
-      clip-path: polygon(50% 0%, 100% 15%, 100% 70%, 50% 100%, 0% 70%, 0% 15%);
+    /* ── BLASON (identique à index.html) ── */
+    .pre-blason {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: absolute;
-      bottom: 0;
-      left: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,.3);
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+      overflow: hidden;
     }
-    .emblem-shield::before {
-      content: "";
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      right: 5px;
-      bottom: 5px;
-      background: linear-gradient(135deg, var(--red) 0%, var(--red) 50%, var(--green) 50%, var(--green) 100%);
-      clip-path: inherit;
-    }
-    .emblem-star {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.8rem;
-      color: var(--gold);
-      text-shadow: 0 0 10px rgba(0,0,0,.5);
-      z-index: 1;
-    }
-    .emblem-crown {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.8rem;
-      color: var(--gold);
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
-    }
-    .emblem-text {
-      margin-top: 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--gold-lt);
-      text-transform: uppercase;
+    .pre-blason img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .pre-title {
       font-size: .6rem; font-weight: 800; letter-spacing: .3em;
       text-transform: uppercase; color: rgba(255,255,255,.55);
-      margin-top: 10px; margin-bottom: 30px;
+      margin-bottom: 30px;
       font-family: 'Montserrat', sans-serif;
     }
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
@@ -204,10 +166,30 @@
       backdrop-filter: blur(20px) saturate(1.5);
       box-shadow: 0 1px 0 rgba(207,160,64,.3), 0 6px 40px rgba(0,0,0,.55);
     }
-    .nav-brand { display: flex; flex-direction: column; gap: 5px; text-decoration: none; }
+
+    /* ── Brand avec blason (identique à index.html) ── */
+    .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-blason {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: white;
+    }
+    .nav-blason img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
     .nav-logo {
       font-family: 'Cinzel', serif;
-      font-size: 1rem; font-weight: 700;
+      font-size: 0.95rem; font-weight: 700;
       color: white; letter-spacing: .06em; white-space: nowrap;
     }
     .nav-logo strong { color: var(--gold); }
@@ -643,7 +625,6 @@
       border-radius: var(--r);
       box-shadow: 0 28px 70px rgba(0,0,0,.55);
     }
-    .mandat-content {}
     .mandat-content p {
       font-size: .9rem; line-height: 2; color: rgba(255,255,255,.6); margin-bottom: 18px;
       font-family: 'Raleway', sans-serif;
@@ -732,9 +713,7 @@
     /* ================================================
        CTA CONTACT
     ================================================ */
-    #cta-bio {
-      background: var(--dark); padding: 100px 5%;
-    }
+    #cta-bio { background: var(--dark); padding: 100px 5%; }
     .cta-bio-inner { max-width: 860px; margin: 0 auto; text-align: center; }
     .cta-bio-title {
       font-family: 'Cinzel', serif;
@@ -827,24 +806,21 @@
       .mandat-chiffres { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .nav-blason { width: 30px; height: 30px; }
     }
   </style>
 </head>
 <body>
 
 <!-- ════════════════════════════════════════
-     PRELOADER
+     PRELOADER — Blason officiel
 ════════════════════════════════════════ -->
 <div id="preloader" role="status" aria-label="Chargement de la biographie">
   <div class="pre-bg-lines" aria-hidden="true"></div>
   <div class="pre-body">
-    <div class="pre-emblem">
-      <div class="emblem-crown">♛</div>
-      <div class="emblem-shield">
-        <div class="emblem-star">★</div>
-      </div>
+    <div class="pre-blason">
+      <img src="blason.jpg" alt="Blason officiel de la Commune d'Abomey" width="110" height="110" />
     </div>
-    <div class="emblem-text">Blason Officiel</div>
     <div class="pre-title">Site Officiel du Maire de la Commune d'Abomey</div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -856,8 +832,13 @@
 ════════════════════════════════════════ -->
 <nav id="navbar" role="navigation" aria-label="Navigation principale">
   <a class="nav-brand" href="index.html" aria-label="Accueil — Métolé Franck Kpassassi, Maire d'Abomey">
-    <span class="nav-logo">Métolé Franck <strong>Kpassassi</strong></span>
-    <div class="nav-tricolor" aria-label="Drapeau du Bénin" role="img"><span></span><span></span><span></span></div>
+    <div class="nav-blason">
+      <img src="blason.jpg" alt="Blason officiel d'Abomey" width="38" height="38" />
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo">Métolé Franck <strong>Kpassassi</strong></span>
+      <div class="nav-tricolor" aria-label="Drapeau du Bénin" role="img"><span></span><span></span><span></span></div>
+    </div>
   </a>
   <ul class="nav-links" role="menubar">
     <li role="none"><a href="index.html"        role="menuitem">Accueil</a></li>
@@ -949,8 +930,8 @@
         <p>
           Ingénieur de formation, rigoureux et méthodique, il a forgé son expertise à travers
           des études poussées en <strong>Ingénierie Énergétique et Électrique</strong>, complétées : par
-          un <em>Master en Génie Electrique </em> , un <em>Master en Énergie Renouvelable et Efficacité Energétique</em> ; étant un
-          <em>Gestionnaire de Projets & Spécialiste du développement local </em> et un <em>Master ès Sciences Physiques</em>. Ce socle
+          un <em>Master en Génie Electrique</em>, un <em>Master en Énergie Renouvelable et Efficacité Energétique</em> ; étant un
+          <em>Gestionnaire de Projets &amp; Spécialiste du développement local</em> et un <em>Master ès Sciences Physiques</em>. Ce socle
           académique exceptionnel lui permet d'aborder la gestion municipale avec une vision
           à la fois technique, stratégique et humaine.
         </p>
@@ -1064,14 +1045,14 @@
           <div class="diplome-card">
             <div class="diplome-icon">⚡</div>
             <div class="diplome-info">
-              <div class="diplome-titre">Master en Génie Electrique </div>
+              <div class="diplome-titre">Master en Génie Electrique</div>
               <div class="diplome-detail">
-                Expert hautement qualifié dans le dimensionnement, la commande et la maintenance des systèmes électriques industriels. Solide maîtrise des réseaux électriques, des machines tournantes et des automatismes industriels. Compétences en recherche appliquée et en développement de solutions innovantes 
+                Expert hautement qualifié dans le dimensionnement, la commande et la maintenance des systèmes électriques industriels. Solide maîtrise des réseaux électriques, des machines tournantes et des automatismes industriels. Compétences en recherche appliquée et en développement de solutions innovantes.
               </div>
               <span class="diplome-tag">Systèmes Electriques</span>
             </div>
           </div>
-          
+
           <div class="diplome-card">
             <div class="diplome-icon">⚡</div>
             <div class="diplome-info">
@@ -1087,9 +1068,9 @@
           <div class="diplome-card">
             <div class="diplome-icon">📊</div>
             <div class="diplome-info">
-              <div class="diplome-titre">Master Profesionnel Gestion de Projets et développement local</div>
+              <div class="diplome-titre">Master Professionnel Gestion de Projets et développement local</div>
               <div class="diplome-detail">
-               Capable de piloter des projets de développement, travailler avec des ONG, collectivités et bailleurs internationaux (UE, Banque Mondiale, PNUD), et exercer comme chef de projet, consultant ou coordinateur de programmes dans les secteurs public, associatif et de la coopération internationale.
+                Capable de piloter des projets de développement, travailler avec des ONG, collectivités et bailleurs internationaux (UE, Banque Mondiale, PNUD), et exercer comme chef de projet, consultant ou coordinateur de programmes dans les secteurs public, associatif et de la coopération internationale.
               </div>
               <span class="diplome-tag">Gestion de Projets</span>
             </div>
@@ -1127,61 +1108,36 @@
 
     <div class="galerie-grid">
 
-      <!-- Photo 3 (phc.jpg) — grande (span 2) -->
       <div class="galerie-item reveal" style="transition-delay:0s">
-        <img
-          src="phc.jpg"
-          alt="Métolé Franck Kpassassi, Maire d'Abomey, lors d'une activité officielle — Bénin"
-          loading="lazy"
-        />
+        <img src="phc.jpg" alt="Métolé Franck Kpassassi, Maire d'Abomey, lors d'une activité officielle — Bénin" loading="lazy" />
         <div class="galerie-overlay">
           <span class="galerie-caption">Le Maire en terrain, au service des citoyens</span>
         </div>
       </div>
 
-      <!-- Photo 4 (phdd.jpg) -->
       <div class="galerie-item reveal" style="transition-delay:.1s">
-        <img
-          src="phdd.jpg"
-          alt="Métolé Franck Kpassassi lors d'une rencontre partenariale — Abomey"
-          loading="lazy"
-        />
+        <img src="phdd.jpg" alt="Métolé Franck Kpassassi lors d'une rencontre partenariale — Abomey" loading="lazy" />
         <div class="galerie-overlay">
           <span class="galerie-caption">Dialogue et partenariats pour Abomey</span>
         </div>
       </div>
 
-      <!-- Photo 5 (phe.jpg) — grande (span 2) -->
       <div class="galerie-item reveal" style="transition-delay:.2s">
-        <img
-          src="phe.jpg"
-          alt="Métolé Franck Kpassassi, Maire d'Abomey, lors d'une cérémonie institutionnelle — Bénin"
-          loading="lazy"
-        />
+        <img src="phe.jpg" alt="Métolé Franck Kpassassi, Maire d'Abomey, lors d'une cérémonie institutionnelle — Bénin" loading="lazy" />
         <div class="galerie-overlay">
           <span class="galerie-caption">Présence et engagement institutionnels</span>
         </div>
       </div>
 
-      <!-- Photo 1 bis (phf.jpg) -->
       <div class="galerie-item reveal" style="transition-delay:.3s">
-        <img
-          src="phf.jpg"
-          alt="Le Maire Kpassassi lors d'une action de gouvernance participative — Abomey"
-          loading="lazy"
-        />
+        <img src="phf.jpg" alt="Le Maire Kpassassi lors d'une action de gouvernance participative — Abomey" loading="lazy" />
         <div class="galerie-overlay">
           <span class="galerie-caption">Gouvernance participative &amp; dialogue citoyen</span>
         </div>
       </div>
 
-      <!-- Photo (phg.jpg) -->
       <div class="galerie-item reveal" style="transition-delay:.4s">
-        <img
-          src="phg.jpg"
-          alt="Métolé Franck Kpassassi lors d'une visite de terrain — Commune d'Abomey"
-          loading="lazy"
-        />
+        <img src="phg.jpg" alt="Métolé Franck Kpassassi lors d'une visite de terrain — Commune d'Abomey" loading="lazy" />
         <div class="galerie-overlay">
           <span class="galerie-caption">Visite de terrain — Commune d'Abomey</span>
         </div>
@@ -1230,7 +1186,7 @@
         <div class="tl-org">Secteur privé &amp; projets de développement — Bénin</div>
         <div class="tl-desc">
           Fort de ses cinq (05) diplômes — Ingénierie Énergétique et Électrique, Master en Génie Electrique, Master en Énergie Renouvelable
-          et Efficacité Energétiuqe, Certification en Gestion de Projets et Développement local et Master ès Sciences Physiques —
+          et Efficacité Energétique, Certification en Gestion de Projets et Développement local et Master ès Sciences Physiques —
           il développe une expertise pointue dans la conception, le suivi et l'évaluation de projets
           énergétiques et d'infrastructure. Cette expérience forge sa capacité à planifier,
           budgétiser et piloter des chantiers complexes, aptitude qu'il transposera directement
@@ -1340,7 +1296,7 @@
         </div>
       </div>
 
-      <!-- Photo 4 (phh.jpg) -->
+      <!-- Photo -->
       <div class="reveal-right">
         <img
           src="phh.jpg"
@@ -1410,7 +1366,7 @@
         <span class="valeur-icon" aria-hidden="true">🎓</span>
         <h3 class="valeur-titre">Excellence</h3>
         <p class="valeur-desc">
-          L'exigence académique qui l'a conduit à accumuler quatre diplômes de haut niveau
+          L'exigence académique qui l'a conduit à accumuler cinq diplômes de haut niveau
           se retrouve dans chaque projet municipal. L'excellence n'est pas un luxe —
           c'est ce que méritent les habitants d'Abomey.
         </p>
@@ -1436,7 +1392,7 @@
   <div class="vision-bio-inner">
     <div class="vision-bio-grid">
 
-      <!-- Photo 5 (phi.jpg) -->
+      <!-- Photo -->
       <div class="reveal-left">
         <img
           src="phi.jpg"
@@ -1464,34 +1420,13 @@
         </div>
 
         <div class="axes-list">
-          <div class="axe-item">
-            <span class="axe-num">01</span>
-            🏛️ Culture &amp; Tourisme Patrimonial
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">02</span>
-            🏗️ Infrastructures &amp; Mobilité Urbaine
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">03</span>
-            🎓 Jeunesse, Éducation &amp; Numérique
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">04</span>
-            💼 Économie Locale &amp; Emploi
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">05</span>
-            🏥 Santé &amp; Cohésion Sociale
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">06</span>
-            🌿 Environnement &amp; Cadre de Vie
-          </div>
-          <div class="axe-item">
-            <span class="axe-num">07</span>
-            ⚙️ Gouvernance &amp; Autonomie Financière
-          </div>
+          <div class="axe-item"><span class="axe-num">01</span> 🏛️ Culture &amp; Tourisme Patrimonial</div>
+          <div class="axe-item"><span class="axe-num">02</span> 🏗️ Infrastructures &amp; Mobilité Urbaine</div>
+          <div class="axe-item"><span class="axe-num">03</span> 🎓 Jeunesse, Éducation &amp; Numérique</div>
+          <div class="axe-item"><span class="axe-num">04</span> 💼 Économie Locale &amp; Emploi</div>
+          <div class="axe-item"><span class="axe-num">05</span> 🏥 Santé &amp; Cohésion Sociale</div>
+          <div class="axe-item"><span class="axe-num">06</span> 🌿 Environnement &amp; Cadre de Vie</div>
+          <div class="axe-item"><span class="axe-num">07</span> ⚙️ Gouvernance &amp; Autonomie Financière</div>
         </div>
       </div>
 
