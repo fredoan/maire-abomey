@@ -9,7 +9,7 @@
   <meta name="keywords" content="gouvernance Abomey, équipe municipale Abomey, Placide Houngbadji, Judicaël Comlan Azon, mairie Abomey, transparence commune Abomey, UPR Bénin, Kpassassi gouvernance" />
   <meta name="author" content="Métolé Franck Kpassassi — Mairie d'Abomey" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#C0272D" />
+  <meta name="theme-color" content="#5C2E1E" />
   <meta name="geo.region" content="BJ-ZO" />
   <meta name="geo.placename" content="Abomey, Bénin" />
   <link rel="canonical" href="https://www.franckkpassassi.com/gouvernance.html" />
@@ -38,12 +38,12 @@
 
   <style>
     /* ================================================
-       VARIABLES — Nouvelle charte graphique officielle
+       VARIABLES — Marron foncé (charte révisée)
     ================================================ */
     :root {
-      --red:        #C0272D;
-      --red-dark:   #8F1D22;
-      --red-night:  #3C0D0F;
+      --red:        #5C2E1E;
+      --red-dark:   #4A2315;
+      --red-night:  #1F0E08;
       --green:      #1A7A5E;
       --gold:       #CFA040;
       --gold-lt:    #E5C471;
@@ -59,7 +59,6 @@
       --slate:      #7A6A5A;
       --nav-h:      76px;
       --r:          6px;
-      /* couleurs drapeau Bénin inchangées */
       --g-green:    #008751;
       --g-yellow:   #FCD116;
       --g-red:      #E8112D;
@@ -83,7 +82,7 @@
     img { max-width: 100%; display: block; }
 
     /* ================================================
-       PRELOADER — Blason officiel (corrigé)
+       PRELOADER — Blason officiel
     ================================================ */
     #preloader {
       position: fixed; inset: 0; z-index: 9999;
@@ -121,11 +120,27 @@
     }
 
     .pre-title {
-      font-size: .6rem; font-weight: 800; letter-spacing: .3em;
-      text-transform: uppercase; color: rgba(255,255,255,.55);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
       margin-bottom: 30px;
       font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      max-width: 85vw;
+      line-height: 1.4;
     }
+
+    @media (max-width: 480px) {
+      .pre-title {
+        font-size: .5rem;
+        letter-spacing: .15em;
+      }
+    }
+
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
     .pre-bar-fill { height: 100%; background: white; border-radius: 2px; animation: preBar 1.6s ease infinite; }
     .pre-flag { display: flex; height: 3px; width: 80px; margin: 16px auto 0; border-radius: 2px; overflow: hidden; }
@@ -217,10 +232,10 @@
       font-family: 'Montserrat', sans-serif;
     }
     .mobile-menu a::before { content: '›'; color: var(--gold); font-size: 1.2rem; }
-    .mobile-menu a:hover { color: white; background: rgba(192,39,45,.08); }
+    .mobile-menu a:hover { color: white; background: rgba(92,46,30,.08); }
 
     /* ================================================
-       PAGE HERO BANNER — ROUGE ABOMEY
+       PAGE HERO BANNER — Marron foncé
     ================================================ */
     .page-hero {
       min-height: 540px; background: var(--red);
@@ -231,9 +246,9 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(255,80,80,.55) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(100,60,35,.55) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,16,8,.7) 0%, transparent 55%),
-        linear-gradient(155deg, #D02A30 0%, #C0272D 22%, #8F1D22 50%, #6A1519 78%, #3C0D0F 100%);
+        linear-gradient(155deg, #6B3824 0%, #5C2E1E 22%, #4A2315 50%, #3B1A0E 78%, #1F0E08 100%);
     }
     .page-hero-pattern {
       position: absolute; inset: 0; opacity: .045; pointer-events: none;
@@ -358,7 +373,7 @@
       padding:15px 34px; border-radius:var(--r);
       text-decoration:none; font-size:.72rem; font-weight:900;
       letter-spacing:.14em; text-transform:uppercase;
-      box-shadow:0 10px 38px rgba(192,39,45,.55); transition:all .3s;
+      box-shadow:0 10px 38px rgba(92,46,30,.55); transition:all .3s;
       font-family: 'Montserrat', sans-serif;
     }
     .btn-blue:hover { transform:translateY(-3px); }
@@ -434,7 +449,7 @@
       font-family: 'Montserrat', sans-serif;
     }
     .membre-card.maire .membre-tag { background: var(--gold-a25); border-color: var(--gold-a50); color: var(--gold); }
-    .membre-card.adj1  .membre-tag { background: rgba(192,39,45,.08); border-color: rgba(192,39,45,.3); color: var(--red); }
+    .membre-card.adj1  .membre-tag { background: rgba(92,46,30,.08); border-color: rgba(92,46,30,.3); color: var(--red); }
     .membre-card.adj2  .membre-tag { background: rgba(26,122,94,.08); border-color: rgba(26,122,94,.3); color: var(--green); }
 
     /* ================================================
@@ -522,7 +537,7 @@
     .reforme-card::after {
       content: ''; position: absolute; bottom: 0; right: 0;
       width: 80px; height: 80px; border-radius: 80px 0 0 0;
-      background: rgba(192,39,45,.06); pointer-events: none;
+      background: rgba(92,46,30,.06); pointer-events: none;
     }
     .reforme-card.gold::after { background: var(--gold-a25); }
     .reforme-card.green::after { background: rgba(26,122,94,.06); }
@@ -543,7 +558,7 @@
     .reforme-desc { font-size: .83rem; line-height: 1.9; color: var(--text-lt); margin-bottom: 18px; font-family: 'Raleway', sans-serif; }
     .reforme-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.15);
+      background: rgba(92,46,30,.08); border: 1px solid rgba(92,46,30,.15);
       color: var(--red); padding: 4px 12px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
       font-family: 'Montserrat', sans-serif;
@@ -557,7 +572,7 @@
     #chiffres {
       background: var(--red);
       background-image:
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(180,30,30,.45), transparent),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(70,40,25,.45), transparent),
         repeating-linear-gradient(45deg, rgba(255,255,255,.018) 0px, rgba(255,255,255,.018) 1px, transparent 1px, transparent 30px);
       padding: 100px 5%;
     }
@@ -597,7 +612,7 @@
       font-family: 'Cormorant Garamond', serif; font-size: 28rem; line-height: 1;
       color: rgba(255,255,255,.02); pointer-events: none; user-select: none;
     }
-    .mantra-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(192,39,45,.18), transparent); }
+    .mantra-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(92,46,30,.18), transparent); }
     .mantra-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
     .mantra-line-v { width: 1px; height: 62px; background: linear-gradient(180deg, transparent, var(--gold), transparent); margin: 0 auto 42px; }
     .mantra-quote {
@@ -619,7 +634,7 @@
     .part-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
     .part-card {
       background: var(--cream); border-radius: var(--r);
-      padding: 32px 26px; border: 1px solid rgba(192,39,45,.15);
+      padding: 32px 26px; border: 1px solid rgba(92,46,30,.15);
       transition: all .35s;
     }
     .part-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,.1); border-color: var(--red); }
@@ -631,7 +646,7 @@
     .part-card-desc { font-size: .82rem; line-height: 1.85; color: var(--text-lt); margin-bottom: 16px; font-family: 'Raleway', sans-serif; }
     .part-card-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.15);
+      background: rgba(92,46,30,.08); border: 1px solid rgba(92,46,30,.15);
       color: var(--red); padding: 4px 12px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
       font-family: 'Montserrat', sans-serif;
@@ -669,7 +684,7 @@
     .footer-social { display: flex; gap: 10px; }
     .fsocial {
       display:inline-flex; align-items:center; gap:7px;
-      background:rgba(192,39,45,.08); border:1px solid rgba(207,160,64,.3);
+      background:rgba(92,46,30,.08); border:1px solid rgba(207,160,64,.3);
       color:rgba(255,255,255,.72); padding:10px 16px; border-radius:var(--r);
       text-decoration:none; font-size:.73rem; font-weight:700; transition:all .3s;
       font-family: 'Montserrat', sans-serif;
@@ -733,7 +748,9 @@
     <div class="pre-blason">
       <img src="blason.jpg" alt="Blason officiel de la Commune d'Abomey" width="110" height="110" />
     </div>
-    <div class="pre-title">  Site Officiel du Maire </br> De la Commune d'Abomey  </div>
+    <div class="pre-title">
+      Site Officiel du Maire<br/>de la Commune d'Abomey
+    </div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
   </div>
