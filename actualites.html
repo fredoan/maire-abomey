@@ -9,7 +9,7 @@
   <meta name="keywords" content="actualités Maire Abomey, Kpassassi actualités, mairie Abomey 2026, actions Abomey Bénin, Franck Kpassassi news" />
   <meta name="author" content="Métolé Franck Kpassassi — Mairie d'Abomey" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#C0272D" />
+  <meta name="theme-color" content="#5C2E1E" />
   <meta name="geo.region" content="BJ-ZO" />
   <meta name="geo.placename" content="Abomey, Bénin" />
   <link rel="canonical" href="https://www.franckkpassassi.com/actualites.html" />
@@ -38,13 +38,13 @@
 
   <style>
     /* ================================================
-       VARIABLES — Nouvelle charte graphique officielle
+       VARIABLES — Marron foncé (charte révisée)
     ================================================ */
     :root {
-      --red:        #C0272D;
-      --red-dark:   #8F1D22;
-      --red-deep:   #6A1519;
-      --red-night:  #3C0D0F;
+      --red:        #5C2E1E;
+      --red-dark:   #4A2315;
+      --red-deep:   #3B1A0E;
+      --red-night:  #1F0E08;
       --green:      #1A7A5E;
       --green-dark: #13604A;
       --gold:       #CFA040;
@@ -84,7 +84,7 @@
     img { max-width: 100%; display: block; }
 
     /* ================================================
-       PRELOADER — Blason officiel (corrigé)
+       PRELOADER — Blason officiel
     ================================================ */
     #preloader {
       position: fixed; inset: 0; z-index: 9999;
@@ -122,11 +122,27 @@
     }
 
     .pre-title {
-      font-size: .6rem; font-weight: 800; letter-spacing: .3em;
-      text-transform: uppercase; color: rgba(255,255,255,.55);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
       margin-bottom: 30px;
       font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      max-width: 85vw;
+      line-height: 1.4;
     }
+
+    @media (max-width: 480px) {
+      .pre-title {
+        font-size: .5rem;
+        letter-spacing: .15em;
+      }
+    }
+
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
     .pre-bar-fill { height: 100%; background: white; border-radius: 2px; animation: preBar 1.6s ease infinite; }
     .pre-flag { display: flex; height: 3px; width: 80px; margin: 16px auto 0; border-radius: 2px; overflow: hidden; }
@@ -218,10 +234,10 @@
       font-family: 'Montserrat', sans-serif;
     }
     .mobile-menu a::before { content: '›'; color: var(--gold); font-size: 1.2rem; }
-    .mobile-menu a:hover { color: white; background: rgba(192,39,45,.08); }
+    .mobile-menu a:hover { color: white; background: rgba(92,46,30,.08); }
 
     /* ================================================
-       PAGE HERO BANNER — ROUGE ABOMEY
+       PAGE HERO BANNER — Marron foncé
     ================================================ */
     .page-hero {
       min-height: 520px; background: var(--red);
@@ -232,9 +248,9 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(255,80,80,.55) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(100,60,35,.55) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,16,8,.7) 0%, transparent 55%),
-        linear-gradient(155deg, #D02A30 0%, #C0272D 22%, #8F1D22 50%, #6A1519 78%, #3C0D0F 100%);
+        linear-gradient(155deg, #6B3824 0%, #5C2E1E 22%, #4A2315 50%, #3B1A0E 78%, #1F0E08 100%);
     }
     .page-hero-pattern {
       position: absolute; inset: 0; opacity: .05; pointer-events: none;
@@ -365,10 +381,10 @@
       padding:15px 34px; border-radius:var(--r);
       text-decoration:none; font-size:.72rem; font-weight:900;
       letter-spacing:.14em; text-transform:uppercase;
-      box-shadow:0 10px 38px rgba(192,39,45,.55); transition:all .3s;
+      box-shadow:0 10px 38px rgba(92,46,30,.55); transition:all .3s;
       font-family: 'Montserrat', sans-serif;
     }
-    .btn-blue:hover { transform:translateY(-3px); box-shadow:0 20px 55px rgba(192,39,45,.55); }
+    .btn-blue:hover { transform:translateY(-3px); box-shadow:0 20px 55px rgba(92,46,30,.55); }
 
     /* ================================================
        SECTION ACTUALITÉ À LA UNE
@@ -388,7 +404,7 @@
     .une-image-col:hover img { transform: scale(1.04); }
     .une-image-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(192,39,45,.35) 0%, transparent 55%),
+      background: linear-gradient(135deg, rgba(92,46,30,.35) 0%, transparent 55%),
                   linear-gradient(to top, rgba(26,16,8,.75) 0%, transparent 50%);
     }
     .une-tag-float {
@@ -397,7 +413,7 @@
       background: var(--red); color: white;
       padding: 7px 16px; border-radius: 30px;
       font-size: .62rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase;
-      box-shadow: 0 6px 20px rgba(192,39,45,.45);
+      box-shadow: 0 6px 20px rgba(92,46,30,.45);
       font-family: 'Montserrat', sans-serif;
     }
     .une-pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--g-green); animation: aPulse 2s ease infinite; flex-shrink: 0; }
@@ -445,18 +461,18 @@
     .filtres-inner { max-width: 1200px; margin: 0 auto; }
     .filtres-bar {
       display: flex; gap: 10px; flex-wrap: wrap;
-      padding: 28px 0; border-bottom: 1px solid rgba(192,39,45,.15);
+      padding: 28px 0; border-bottom: 1px solid rgba(92,46,30,.15);
     }
     .filtre-btn {
       padding: 9px 20px; border-radius: 30px; cursor: pointer;
       font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      border: 2px solid rgba(192,39,45,.3); background: transparent; color: var(--red);
+      border: 2px solid rgba(92,46,30,.3); background: transparent; color: var(--red);
       transition: all .25s;
       font-family: 'Montserrat', sans-serif;
     }
     .filtre-btn:hover, .filtre-btn.active {
       background: var(--red); color: white; border-color: var(--red);
-      box-shadow: 0 6px 20px rgba(192,39,45,.3);
+      box-shadow: 0 6px 20px rgba(92,46,30,.3);
     }
     .filtre-btn.all.active { background: var(--dark); border-color: var(--dark); }
 
@@ -488,7 +504,7 @@
     .actu-card-header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 14px 20px;
-      background: var(--cream2); border-bottom: 1px solid rgba(192,39,45,.08);
+      background: var(--cream2); border-bottom: 1px solid rgba(92,46,30,.08);
     }
     .actu-cat-tag {
       font-size: .6rem; font-weight: 900; letter-spacing: .13em;
@@ -513,7 +529,7 @@
     }
     .actu-card-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.15);
+      background: rgba(92,46,30,.08); border: 1px solid rgba(92,46,30,.15);
       color: var(--red); padding: 4px 12px; border-radius: 30px;
       font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
       font-family: 'Montserrat', sans-serif;
@@ -561,7 +577,7 @@
       background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
       border-radius: var(--r); padding: 26px 20px; text-align: center; transition: background .3s;
     }
-    .bn:hover { background: rgba(192,39,45,.18); }
+    .bn:hover { background: rgba(92,46,30,.18); }
     .bn-num {
       font-family: 'Cinzel', serif;
       font-size: 2.8rem; font-weight: 700; color: var(--gold); line-height: 1;
@@ -590,7 +606,7 @@
       position: absolute; left: -44px; top: 10px;
       width: 22px; height: 22px; border-radius: 50%;
       background: var(--red); border: 3px solid white;
-      box-shadow: 0 0 0 3px rgba(192,39,45,.3); transition: transform .3s;
+      box-shadow: 0 0 0 3px rgba(92,46,30,.3); transition: transform .3s;
     }
     .chron-dot.gold { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-a25); }
     .chron-item:hover .chron-dot { transform: scale(1.25); }
@@ -621,7 +637,7 @@
     #cta-actu {
       background: var(--red); position: relative; overflow: hidden; padding: 110px 5%;
       background-image:
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(180,30,30,.5), transparent),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(70,40,25,.5), transparent),
         repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 30px),
         repeating-linear-gradient(-45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 30px);
     }
@@ -676,7 +692,7 @@
     .footer-social { display: flex; gap: 10px; }
     .fsocial {
       display:inline-flex; align-items:center; gap:7px;
-      background:rgba(192,39,45,.08); border:1px solid rgba(207,160,64,.3);
+      background:rgba(92,46,30,.08); border:1px solid rgba(207,160,64,.3);
       color:rgba(255,255,255,.72); padding:10px 16px; border-radius:var(--r);
       text-decoration:none; font-size:.73rem; font-weight:700; transition:all .3s;
       font-family: 'Montserrat', sans-serif;
@@ -741,7 +757,9 @@
     <div class="pre-blason">
       <img src="blason.jpg" alt="Blason officiel de la Commune d'Abomey" width="110" height="110" />
     </div>
-    <div class="pre-title">  Site Officiel du Maire </br> De la Commune d'Abomey  </div>
+    <div class="pre-title">
+      Site Officiel du Maire<br/>de la Commune d'Abomey
+    </div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
   </div>
