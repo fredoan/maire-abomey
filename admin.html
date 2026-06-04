@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin — Mairie d'Abomey</title>
+  <title>Admin — Maire d'Abomey</title>
   <meta name="robots" content="noindex,nofollow"/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
@@ -143,9 +143,9 @@
 <!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-logo">Mairie d'Abomey<span>.</span></div>
+    <div class="login-logo">Maire d'Abomey<span>.</span></div>
     <p class="login-sub">Administration</p>
-    <div class="login-field"><label>Identifiant</label><input type="text" id="loginUser" placeholder="admin" autocomplete="username"/></div>
+    <div class="login-field"><label>Identifiant</label><input type="text" id="loginUser" placeholder="adminmaire" autocomplete="username"/></div>
     <div class="login-field"><label>Mot de passe</label><input type="password" id="loginPass" placeholder="••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter') doLogin()"/></div>
     <button class="login-btn" onclick="doLogin()">🔐 Se connecter</button>
     <p class="login-error" id="loginError">Identifiants incorrects.</p>
@@ -155,7 +155,7 @@
 <!-- ADMIN -->
 <div id="adminScreen">
   <div class="admin-top">
-    <div class="admin-brand">Mairie d'Abomey<span>.</span> — Admin</div>
+    <div class="admin-brand">Maire d'Abomey<span>.</span> — Admin</div>
     <button class="logout-btn" onclick="doLogout()">🚪 Déconnexion</button>
   </div>
   <div class="admin-body">
@@ -240,9 +240,9 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // Identifiants admin (modifiables ici)
-  const ADMIN_USER = "admin";
-  const ADMIN_PASS = "abomey2026";
+  // Identifiants admin (modifiés)
+  const ADMIN_USER = "adminmaire";
+  const ADMIN_PASS = "franck@fredy2026";
 
   let editingId = null;
 
