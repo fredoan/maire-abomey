@@ -177,8 +177,21 @@
             </select>
           </div>
         </div>
-        <div class="form-group"><label>Image (URL) — optionnel</label><input type="text" id="fImageUrl" placeholder="https://..." oninput="previewImg(this.value)"/><img id="imgPreview" style="max-width:100%; max-height:200px; margin-top: .5rem; display:none;"/></div>
-        <div class="form-group"><label>Contenu <span class="req">*</span></label>
+        <div class="form-group">
+  <label>Image (URL) — optionnel</label>
+  <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+    <input type="text" id="fImageUrl" placeholder="https://..." style="flex:1;" oninput="previewImg(this.value)"/>
+    <button type="button" onclick="window.open('https://fr.imgbb.com', '_blank')" style="padding: 0.6rem 1rem; background: var(--brown); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">
+      📸 ImgBB
+    </button>
+  </div>
+  <div style="background: var(--cream2); padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; color: var(--text-lt); margin-top: 0.3rem;">
+    💡 <strong>Astuce :</strong> Cliquez sur le bouton <strong>📸 ImgBB</strong> pour ouvrir un site qui vous permet d’uploader une image gratuitement sans inscription.<br/>
+    Après l’upload, cliquez sur <strong>« Lien direct »</strong> (ou « Direct link ») et copiez l’URL. Collez-la ensuite dans le champ ci-dessus.
+  </div>
+  <img id="imgPreview" style="max-width:100%; max-height:200px; margin-top: .5rem; display:none;"/>
+</div>
+          <div class="form-group"><label>Contenu <span class="req">*</span></label>
           <div class="toolbar">
             <button class="tool-btn" onclick="fmt('bold')"><b>G</b></button>
             <button class="tool-btn" onclick="fmt('italic')"><i>I</i></button>
