@@ -12,11 +12,15 @@
   <meta name="theme-color" content="#C0272D" />
   <link rel="canonical" href="https://www.franckkpassassi.com/contact.html" />
 
+  <!-- ===== OPEN GRAPH avec Blason ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.franckkpassassi.com/contact.html" />
   <meta property="og:title" content="Contact — Mairie d'Abomey · Métolé Franck Kpassassi" />
   <meta property="og:description" content="Écrivez au Maire de la Commune d'Abomey. Formulaire de contact, emails et adresse officielle." />
-  <meta property="og:image" content="https://www.franckkpassassi.com/pha.jpg" />
+  <meta property="og:image" content="https://www.franckkpassassi.com/blason.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Blason officiel de la Commune d'Abomey" />
   <meta property="og:locale" content="fr_BJ" />
   <meta property="og:site_name" content="Site Officiel du Maire de la Commune d'Abomey" />
 
@@ -71,7 +75,7 @@
     img { max-width: 100%; display: block; }
 
     /* ================================================
-       PRELOADER — Emblème stylisé temporaire
+       PRELOADER — Blason officiel (corrigé)
     ================================================ */
     #preloader {
       position: fixed; inset: 0; z-index: 9999;
@@ -89,68 +93,29 @@
     }
     .pre-body { position: relative; z-index: 1; text-align: center; }
 
-    .pre-emblem {
-      width: 100px;
-      height: 120px;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-    .emblem-shield {
-      width: 80px;
-      height: 90px;
-      background: var(--gold);
-      clip-path: polygon(50% 0%, 100% 15%, 100% 70%, 50% 100%, 0% 70%, 0% 15%);
+    .pre-blason {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: absolute;
-      bottom: 0;
-      left: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,.3);
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+      overflow: hidden;
     }
-    .emblem-shield::before {
-      content: "";
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      right: 5px;
-      bottom: 5px;
-      background: linear-gradient(135deg, var(--red) 0%, var(--red) 50%, var(--green) 50%, var(--green) 100%);
-      clip-path: inherit;
-    }
-    .emblem-star {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.8rem;
-      color: var(--gold);
-      text-shadow: 0 0 10px rgba(0,0,0,.5);
-      z-index: 1;
-    }
-    .emblem-crown {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.8rem;
-      color: var(--gold);
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
-    }
-    .emblem-text {
-      margin-top: 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--gold-lt);
-      text-transform: uppercase;
+    .pre-blason img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .pre-title {
       font-size: .6rem; font-weight: 800; letter-spacing: .3em;
       text-transform: uppercase; color: rgba(255,255,255,.55);
-      margin-top: 10px; margin-bottom: 30px;
+      margin-bottom: 30px;
       font-family: 'Montserrat', sans-serif;
     }
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
@@ -162,7 +127,7 @@
     @keyframes preBar { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
 
     /* ================================================
-       NAVIGATION
+       NAVIGATION (avec blason)
     ================================================ */
     nav#navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -176,7 +141,25 @@
       backdrop-filter: blur(20px) saturate(1.5);
       box-shadow: 0 1px 0 rgba(207,160,64,.3), 0 6px 40px rgba(0,0,0,.55);
     }
-    .nav-brand { display: flex; flex-direction: column; gap: 5px; text-decoration: none; }
+    .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-blason {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: white;
+    }
+    .nav-blason img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
     .nav-logo {
       font-family: 'Cinzel', serif;
       font-size: 1rem; font-weight: 700;
@@ -187,6 +170,7 @@
     .nav-tricolor span:nth-child(1) { flex: 1; background: var(--g-green); border-radius: 1px 0 0 1px; }
     .nav-tricolor span:nth-child(2) { flex: 1; background: var(--g-yellow); }
     .nav-tricolor span:nth-child(3) { flex: 1; background: var(--g-red); border-radius: 0 1px 1px 0; }
+
     .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
     .nav-links a {
       color: rgba(255,255,255,.75); text-decoration: none;
@@ -612,18 +596,14 @@
 <body>
 
 <!-- ════════════════════════════════════════
-     PRELOADER
+     PRELOADER — Blason officiel
 ════════════════════════════════════════ -->
 <div id="preloader" role="status" aria-label="Chargement de la page contact">
   <div class="pre-bg-lines" aria-hidden="true"></div>
   <div class="pre-body">
-    <div class="pre-emblem">
-      <div class="emblem-crown">♛</div>
-      <div class="emblem-shield">
-        <div class="emblem-star">★</div>
-      </div>
+    <div class="pre-blason">
+      <img src="blason.jpg" alt="Blason officiel de la Commune d'Abomey" width="110" height="110" />
     </div>
-    <div class="emblem-text">Blason Officiel</div>
     <div class="pre-title">Site Officiel du Maire de la Commune d'Abomey</div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -631,12 +611,17 @@
 </div>
 
 <!-- ════════════════════════════════════════
-     NAVIGATION
+     NAVIGATION (avec blason)
 ════════════════════════════════════════ -->
 <nav id="navbar" role="navigation" aria-label="Navigation principale">
   <a class="nav-brand" href="index.html" aria-label="Accueil — Métolé Franck Kpassassi, Maire d'Abomey">
-    <span class="nav-logo">Métolé Franck <strong>Kpassassi</strong></span>
-    <div class="nav-tricolor" aria-label="Drapeau du Bénin" role="img"><span></span><span></span><span></span></div>
+    <div class="nav-blason">
+      <img src="blason.jpg" alt="Blason officiel d'Abomey" width="38" height="38" />
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo">Métolé Franck <strong>Kpassassi</strong></span>
+      <div class="nav-tricolor" aria-label="Drapeau du Bénin" role="img"><span></span><span></span><span></span></div>
+    </div>
   </a>
   <ul class="nav-links" role="menubar">
     <li role="none"><a href="index.html"       role="menuitem">Accueil</a></li>
