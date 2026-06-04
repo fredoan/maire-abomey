@@ -177,21 +177,21 @@
             </select>
           </div>
         </div>
+        <!-- SECTION IMAGE CORRIGÉE AVEC POSTIMAGE -->
         <div class="form-group">
-  <label>Image (URL) — optionnel</label>
-  <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
-    <input type="text" id="fImageUrl" placeholder="https://..." style="flex:1;" oninput="previewImg(this.value)"/>
-    <button type="button" onclick="window.open('https://fr.imgbb.com', '_blank')" style="padding: 0.6rem 1rem; background: var(--brown); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">
-      📸 ImgBB
-    </button>
-  </div>
-  <div style="background: var(--cream2); padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; color: var(--text-lt); margin-top: 0.3rem;">
-    💡 <strong>Astuce :</strong> Cliquez sur le bouton <strong>📸 ImgBB</strong> pour ouvrir un site qui vous permet d’uploader une image gratuitement sans inscription.<br/>
-    Après l’upload, cliquez sur <strong>« Lien direct »</strong> (ou « Direct link ») et copiez l’URL. Collez-la ensuite dans le champ ci-dessus.
-  </div>
-  <img id="imgPreview" style="max-width:100%; max-height:200px; margin-top: .5rem; display:none;"/>
-</div>
-          <div class="form-group"><label>Contenu <span class="req">*</span></label>
+          <label>Image (URL) — optionnel</label>
+          <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <input type="text" id="fImageUrl" placeholder="https://..." style="flex:1;" oninput="previewImg(this.value)"/>
+            <button type="button" onclick="window.open('https://postimages.org/fr/', '_blank')" style="padding: 0.6rem 1rem; background: var(--brown); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">
+              📸 PostImage
+            </button>
+          </div>
+          <div style="background: var(--cream2); padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; color: var(--text-lt); margin-top: 0.3rem;">
+            💡 <strong>Astuce :</strong> Cliquez sur <strong>📸 PostImage</strong> pour ouvrir un site gratuit. Après l’upload, copiez le <strong>« Lien direct »</strong> (deuxième lien). Collez-le ensuite dans le champ ci-dessus.
+          </div>
+          <img id="imgPreview" style="max-width:100%; max-height:200px; margin-top: .5rem; display:none;"/>
+        </div>
+        <div class="form-group"><label>Contenu <span class="req">*</span></label>
           <div class="toolbar">
             <button class="tool-btn" onclick="fmt('bold')"><b>G</b></button>
             <button class="tool-btn" onclick="fmt('italic')"><i>I</i></button>
@@ -244,9 +244,9 @@
   const ADMIN_USER = "admin";
   const ADMIN_PASS = "abomey2026";
 
-  let editingId = null;      // null = création, sinon id de l'article en cours d'édition
+  let editingId = null;
 
-  // ──────────────── AUTHENTIFICATION ────────────────
+  // AUTHENTIFICATION
   window.doLogin = () => {
     const u = document.getElementById('loginUser').value.trim();
     const p = document.getElementById('loginPass').value;
@@ -267,7 +267,7 @@
     resetForm();
   };
 
-  // ──────────────── FORMULAIRE ────────────────
+  // FORMULAIRE
   window.resetForm = () => {
     editingId = null;
     document.getElementById('fTitre').value = '';
@@ -294,7 +294,7 @@
     prev.onerror = () => prev.style.display = 'none';
   };
 
-  // ──────────────── SAUVEGARDE (création ou modification) ────────────────
+  // SAUVEGARDE
   window.saveArticle = async (publie) => {
     const titre = document.getElementById('fTitre').value.trim();
     const categorie = document.getElementById('fCategorie').value;
@@ -320,11 +320,9 @@
 
     try {
       if (editingId) {
-        // Modification : on ne change pas la date de création d'origine
         await updateDoc(doc(db, 'actualites', editingId), data);
         toast('✅ Actualité modifiée');
       } else {
-        // Création : on ajoute la date de création
         data.date = now;
         await addDoc(collection(db, 'actualites'), data);
         toast(publie ? '🚀 Actualité publiée !' : '💾 Brouillon enregistré');
@@ -337,7 +335,7 @@
     }
   };
 
-  // ──────────────── LISTE DES ARTICLES ────────────────
+  // LISTE
   window.loadList = async () => {
     const wrap = document.getElementById('artListWrap');
     wrap.innerHTML = '<div class="mini-spin"></div>';
@@ -346,7 +344,6 @@
       const snap = await getDocs(q);
       const arts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
-      // Mise à jour des stats
       document.getElementById('stTotal').textContent = arts.length;
       document.getElementById('stPubl').textContent = arts.filter(a => a.publie).length;
       document.getElementById('stDraft').textContent = arts.filter(a => !a.publie).length;
@@ -382,7 +379,7 @@
     }
   };
 
-  // ──────────────── ÉDITION D'UN ARTICLE ────────────────
+  // ÉDITION
   window.editArticle = async (id) => {
     try {
       const docSnap = await getDoc(doc(db, 'actualites', id));
@@ -411,7 +408,7 @@
     }
   };
 
-  // ──────────────── CHANGER STATUT PUBLIÉ / BROUILLON ────────────────
+  // CHANGER STATUT
   window.togglePub = async (id, current) => {
     try {
       await updateDoc(doc(db, 'actualites', id), { publie: !current });
@@ -423,7 +420,7 @@
     }
   };
 
-  // ──────────────── SUPPRIMER UN ARTICLE ────────────────
+  // SUPPRIMER
   window.delArticle = async (id) => {
     if (!confirm('Supprimer définitivement cette actualité ?')) return;
     try {
@@ -436,7 +433,7 @@
     }
   };
 
-  // ──────────────── OUTILS ÉDITEUR ────────────────
+  // OUTILS EDITEUR
   window.fmt = (cmd) => {
     document.execCommand(cmd, false, null);
     document.getElementById('editorArea').focus();
@@ -452,7 +449,7 @@
     document.getElementById('previewPane').innerHTML = c || '<em style="color:var(--text-muted)">Aperçu vide…</em>';
   };
 
-  // ──────────────── UTILITAIRES ────────────────
+  // UTILITAIRES
   function toast(msg, type = '') {
     const t = document.getElementById('toast');
     t.textContent = msg;
@@ -478,7 +475,6 @@
     });
   }
 
-  // Initialisation : on s'assure que l'éditeur a un aperçu
   window.livePreview();
 </script>
 </body>
