@@ -10,7 +10,7 @@
   <meta name="keywords" content="Biographie Métolé Franck Kpassassi, Maire Abomey, Bénin, Ingénieur énergéticien, Danxomè, Zou, né à Abomey, kpassassi biographie" />
   <meta name="author" content="Métolé Franck Kpassassi — Mairie d'Abomey" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#C0272D" />
+  <meta name="theme-color" content="#5C2E1E" />
   <meta name="geo.region" content="BJ-ZO" />
   <meta name="geo.placename" content="Abomey, Bénin" />
   <link rel="canonical" href="https://www.franckkpassassi.com/biographie.html" />
@@ -57,13 +57,13 @@
 
   <style>
     /* ================================================
-       VARIABLES — Nouvelle charte graphique officielle
+       VARIABLES — Marron foncé (charte révisée)
     ================================================ */
     :root {
-      --red:        #C0272D;
-      --red-dark:   #8F1D22;
-      --red-deep:   #6A1519;
-      --red-night:  #3C0D0F;
+      --red:        #5C2E1E;
+      --red-dark:   #4A2315;
+      --red-deep:   #3B1A0E;
+      --red-night:  #1F0E08;
       --green:      #1A7A5E;
       --green-dark: #13604A;
       --gold:       #CFA040;
@@ -142,11 +142,27 @@
     }
 
     .pre-title {
-      font-size: .6rem; font-weight: 800; letter-spacing: .3em;
-      text-transform: uppercase; color: rgba(255,255,255,.55);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
       margin-bottom: 30px;
       font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      max-width: 85vw;
+      line-height: 1.4;
     }
+
+    @media (max-width: 480px) {
+      .pre-title {
+        font-size: .5rem;
+        letter-spacing: .15em;
+      }
+    }
+
     .pre-bar-wrap { width: 80px; height: 2px; background: rgba(255,255,255,.15); border-radius: 2px; overflow: hidden; margin: 0 auto; }
     .pre-bar-fill { height: 100%; background: white; border-radius: 2px; animation: preBar 1.6s ease infinite; }
     .pre-flag { display: flex; height: 3px; width: 80px; margin: 16px auto 0; border-radius: 2px; overflow: hidden; }
@@ -249,7 +265,7 @@
       font-family: 'Montserrat', sans-serif;
     }
     .mobile-menu a::before { content: '›'; color: var(--gold); font-size: 1.2rem; }
-    .mobile-menu a:hover { color: white; background: rgba(192,39,45,.08); }
+    .mobile-menu a:hover { color: white; background: rgba(92,46,30,.08); }
 
     /* ================================================
        PAGE HERO — BANNER BIOGRAPHIE
@@ -264,9 +280,9 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(255,80,80,.55) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 80% 30%, rgba(100,60,35,.55) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,16,8,.7) 0%, transparent 55%),
-        linear-gradient(155deg, #D02A30 0%, #C0272D 22%, #8F1D22 50%, #6A1519 78%, #3C0D0F 100%);
+        linear-gradient(155deg, #6B3824 0%, #5C2E1E 22%, #4A2315 50%, #3B1A0E 78%, #1F0E08 100%);
     }
     .page-hero-pattern {
       position: absolute; inset: 0; opacity: .05; pointer-events: none;
@@ -459,7 +475,7 @@
     }
     .mantra-glow {
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(192,39,45,.18), transparent);
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(92,46,30,.18), transparent);
     }
     .mantra-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
     .mantra-line-v {
@@ -501,7 +517,7 @@
       background: var(--red); color: white;
       padding: 12px 20px; border-radius: var(--r);
       font-size: .68rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; box-shadow: 0 10px 30px rgba(192,39,45,.4);
+      text-transform: uppercase; box-shadow: 0 10px 30px rgba(92,46,30,.4);
       font-family: 'Montserrat', sans-serif;
     }
 
@@ -509,10 +525,10 @@
     .diplome-card {
       background: var(--cream); border-radius: var(--r);
       padding: 22px 24px; display: flex; gap: 18px; align-items: flex-start;
-      border: 1px solid rgba(192,39,45,.15);
+      border: 1px solid rgba(92,46,30,.15);
       transition: box-shadow .3s, transform .3s;
     }
-    .diplome-card:hover { transform: translateX(6px); box-shadow: 0 8px 30px rgba(192,39,45,.08); }
+    .diplome-card:hover { transform: translateX(6px); box-shadow: 0 8px 30px rgba(92,46,30,.08); }
     .diplome-icon {
       width: 46px; height: 46px; flex-shrink: 0;
       background: var(--red); border-radius: 50%;
@@ -528,14 +544,14 @@
     .diplome-detail { font-size: .78rem; color: var(--text-lt); line-height: 1.6; font-family: 'Raleway', sans-serif; }
     .diplome-tag {
       display: inline-block; margin-top: 8px;
-      background: rgba(192,39,45,.08); border: 1px solid rgba(192,39,45,.3);
+      background: rgba(92,46,30,.08); border: 1px solid rgba(92,46,30,.3);
       color: var(--red); padding: 3px 10px; border-radius: 30px;
       font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
       font-family: 'Montserrat', sans-serif;
     }
 
     /* ================================================
-       SECTION 4 — GALERIE PHOTOS
+       SECTION 4 — GALERIE PHOTOS (5 photos)
     ================================================ */
     #galerie { background: var(--cream2); }
     .galerie-intro { text-align: center; margin-bottom: 54px; }
@@ -588,7 +604,7 @@
       position: absolute; left: -40px; top: 8px;
       width: 20px; height: 20px; border-radius: 50%;
       background: var(--red); border: 3px solid white;
-      box-shadow: 0 0 0 3px rgba(192,39,45,.3);
+      box-shadow: 0 0 0 3px rgba(92,46,30,.3);
     }
     .tl-dot.gold { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-a25); }
     .tl-date {
@@ -608,7 +624,7 @@
     }
     .tl-desc {
       font-size: .88rem; line-height: 1.9; color: var(--text-lt);
-      background: white; border-left: 3px solid rgba(192,39,45,.3);
+      background: white; border-left: 3px solid rgba(92,46,30,.3);
       padding: 16px 20px; border-radius: 0 var(--r) var(--r) 0;
       font-family: 'Raleway', sans-serif;
     }
@@ -638,7 +654,7 @@
       border-radius: var(--r); padding: 22px 18px; text-align: center;
       transition: background .3s;
     }
-    .mc:hover { background: rgba(192,39,45,.18); }
+    .mc:hover { background: rgba(92,46,30,.18); }
     .mc-num {
       font-family: 'Cinzel', serif;
       font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1;
@@ -675,7 +691,7 @@
     #vision-bio {
       background: var(--red); position: relative; overflow: hidden; padding: 110px 5%;
       background-image:
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(180,30,30,.5), transparent),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(70,40,25,.5), transparent),
         repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 30px),
         repeating-linear-gradient(-45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 30px);
     }
@@ -747,7 +763,7 @@
     .footer-social { display: flex; gap: 10px; }
     .fsocial {
       display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(192,39,45,.08); border: 1px solid rgba(207,160,64,.3);
+      background: rgba(92,46,30,.08); border: 1px solid rgba(207,160,64,.3);
       color: rgba(255,255,255,.72); padding: 10px 16px; border-radius: var(--r);
       text-decoration: none; font-size: .73rem; font-weight: 700; transition: all .3s;
       font-family: 'Montserrat', sans-serif;
@@ -821,7 +837,9 @@
     <div class="pre-blason">
       <img src="blason.jpg" alt="Blason officiel de la Commune d'Abomey" width="110" height="110" />
     </div>
-    <div class="pre-title">  Site Officiel du Maire </br> De la Commune d'Abomey  </div>
+    <div class="pre-title">
+      Site Officiel du Maire<br/>de la Commune d'Abomey
+    </div>
     <div class="pre-bar-wrap"><div class="pre-bar-fill"></div></div>
     <div class="pre-flag" aria-hidden="true"><span></span><span></span><span></span></div>
   </div>
