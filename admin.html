@@ -139,6 +139,8 @@
   </style>
 </head>
 <body>
+
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
     <div class="login-logo">Mairie d'Abomey<span>.</span></div>
@@ -149,12 +151,15 @@
     <p class="login-error" id="loginError">Identifiants incorrects.</p>
   </div>
 </div>
+
+<!-- ADMIN -->
 <div id="adminScreen">
   <div class="admin-top">
     <div class="admin-brand">Mairie d'Abomey<span>.</span> — Admin</div>
     <button class="logout-btn" onclick="doLogout()">🚪 Déconnexion</button>
   </div>
   <div class="admin-body">
+    <!-- FORMULAIRE -->
     <div class="card">
       <div class="card-header"><h2 id="formTitle">✏️ Nouvelle actualité</h2><span class="card-badge" id="formMode">CRÉATION</span></div>
       <div class="card-body">
@@ -195,6 +200,8 @@
         <div class="form-msg" id="formMsg"></div>
       </div>
     </div>
+
+    <!-- STATS + LISTE -->
     <div>
       <div class="card"><div class="card-header"><h2>📊 Statistiques</h2></div><div class="card-body"><div class="stats-row"><div class="stat-box"><span class="stat-num" id="stTotal">—</span><span class="stat-lbl">Total</span></div><div class="stat-box"><span class="stat-num" id="stPubl">—</span><span class="stat-lbl">Publiés</span></div><div class="stat-box"><span class="stat-num" id="stDraft">—</span><span class="stat-lbl">Brouillons</span></div></div></div></div>
       <div class="card"><div class="card-header"><h2>📋 Mes actualités</h2><button class="mini-btn" onclick="loadList()">🔄 Actualiser</button></div><div class="card-body"><div id="artListWrap"><div class="mini-spin"></div></div></div></div>
@@ -205,25 +212,28 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, getDocs, orderBy, query, Timestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, getDocs, getDoc, orderBy, query, Timestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  // === VOS CLÉS FIREBASE ===
+  // Configuration Firebase (identique à ton projet)
   const firebaseConfig = {
     apiKey: "AIzaSyC-WQKa-8ExuTC3oBgGMIc7v_BbLhxWwbg",
     authDomain: "maireabomey.firebaseapp.com",
-    databaseURL: "https://maireabomey-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "maireabomey",
     storageBucket: "maireabomey.firebasestorage.app",
     messagingSenderId: "1836378114",
     appId: "1:1836378114:web:ede0f4cd347100c9091f1b"
   };
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
+  // Identifiants admin (modifiables ici)
   const ADMIN_USER = "admin";
-  const ADMIN_PASS = "abomey2026"; // changez ici le mot de passe
-  let editingId = null;
+  const ADMIN_PASS = "abomey2026";
 
+  let editingId = null;      // null = création, sinon id de l'article en cours d'édition
+
+  // ──────────────── AUTHENTIFICATION ────────────────
   window.doLogin = () => {
     const u = document.getElementById('loginUser').value.trim();
     const p = document.getElementById('loginPass').value;
@@ -232,15 +242,19 @@
       document.getElementById('adminScreen').style.display = 'block';
       loadList();
     } else {
-      document.getElementById('loginError').style.display = 'block';
-      setTimeout(()=>document.getElementById('loginError').style.display='none', 3000);
+      const err = document.getElementById('loginError');
+      err.style.display = 'block';
+      setTimeout(() => err.style.display = 'none', 3000);
     }
   };
+
   window.doLogout = () => {
     document.getElementById('adminScreen').style.display = 'none';
     document.getElementById('loginScreen').style.display = 'flex';
     resetForm();
   };
+
+  // ──────────────── FORMULAIRE ────────────────
   window.resetForm = () => {
     editingId = null;
     document.getElementById('fTitre').value = '';
@@ -251,42 +265,66 @@
     document.getElementById('imgPreview').style.display = 'none';
     document.getElementById('formTitle').textContent = '✏️ Nouvelle actualité';
     document.getElementById('formMode').textContent = 'CRÉATION';
-    document.getElementById('formMsg').style.display = 'none';
+    const msgDiv = document.getElementById('formMsg');
+    msgDiv.style.display = 'none';
+    msgDiv.innerHTML = '';
   };
+
   window.previewImg = (url) => {
     const prev = document.getElementById('imgPreview');
-    if (!url || !url.startsWith('http')) { prev.style.display='none'; return; }
-    prev.src = url; prev.style.display = 'block';
-    prev.onerror = () => prev.style.display='none';
+    if (!url || !url.startsWith('http')) {
+      prev.style.display = 'none';
+      return;
+    }
+    prev.src = url;
+    prev.style.display = 'block';
+    prev.onerror = () => prev.style.display = 'none';
   };
+
+  // ──────────────── SAUVEGARDE (création ou modification) ────────────────
   window.saveArticle = async (publie) => {
     const titre = document.getElementById('fTitre').value.trim();
     const categorie = document.getElementById('fCategorie').value;
     const contenu = document.getElementById('editorArea').innerHTML.trim();
+
     if (!titre || !categorie || !contenu || contenu === '<br>') {
       showMsg('⚠️ Titre, catégorie et contenu sont obligatoires.', 'err');
       return;
     }
-    const urlImage = document.getElementById('fImageUrl').value.trim() || null;
+
+    const imageUrl = document.getElementById('fImageUrl').value.trim() || null;
+    const now = Timestamp.now();
+
     const data = {
-      titre, categorie, contenu, publie,
+      titre,
+      categorie,
+      contenu,
+      publie,
       auteur: 'Métolé Franck Kpassassi',
-      imageUrl: urlImage,
-      date: Timestamp.now(),
-      updatedAt: Timestamp.now()
+      imageUrl,
+      updatedAt: now
     };
+
     try {
       if (editingId) {
+        // Modification : on ne change pas la date de création d'origine
         await updateDoc(doc(db, 'actualites', editingId), data);
         toast('✅ Actualité modifiée');
       } else {
+        // Création : on ajoute la date de création
+        data.date = now;
         await addDoc(collection(db, 'actualites'), data);
         toast(publie ? '🚀 Actualité publiée !' : '💾 Brouillon enregistré');
       }
       resetForm();
       loadList();
-    } catch(e) { showMsg('❌ Erreur : ' + e.message, 'err'); }
+    } catch (err) {
+      console.error(err);
+      showMsg('❌ Erreur Firestore : ' + err.message, 'err');
+    }
   };
+
+  // ──────────────── LISTE DES ARTICLES ────────────────
   window.loadList = async () => {
     const wrap = document.getElementById('artListWrap');
     wrap.innerHTML = '<div class="mini-spin"></div>';
@@ -294,55 +332,141 @@
       const q = query(collection(db, 'actualites'), orderBy('date', 'desc'));
       const snap = await getDocs(q);
       const arts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+      // Mise à jour des stats
       document.getElementById('stTotal').textContent = arts.length;
-      document.getElementById('stPubl').textContent = arts.filter(a=>a.publie).length;
-      document.getElementById('stDraft').textContent = arts.filter(a=>!a.publie).length;
-      if (!arts.length) { wrap.innerHTML = '<p style="text-align:center;padding:2rem;">Aucune actualité.</p>'; return; }
-      wrap.innerHTML = '<div class="art-list">' + arts.map(a => `
-        <div class="art-item">
-          <div class="art-thumb">${a.imageUrl ? `<img src="${a.imageUrl}" alt=""/>` : '📰'}</div>
-          <div class="art-info">
-            <div class="art-info-title">${a.titre}</div>
-            <div class="art-info-meta"><span>📅 ${a.date?.toDate ? a.date.toDate().toLocaleDateString('fr-FR') : ''}</span><span>${a.categorie || ''}</span><span class="${a.publie?'status-pub':'status-draft'}">${a.publie?'Publié':'Brouillon'}</span></div>
+      document.getElementById('stPubl').textContent = arts.filter(a => a.publie).length;
+      document.getElementById('stDraft').textContent = arts.filter(a => !a.publie).length;
+
+      if (!arts.length) {
+        wrap.innerHTML = '<p style="text-align:center;padding:2rem;">Aucune actualité.</p>';
+        return;
+      }
+
+      wrap.innerHTML = `<div class="art-list">
+        ${arts.map(a => `
+          <div class="art-item">
+            <div class="art-thumb">${a.imageUrl ? `<img src="${a.imageUrl}" alt=""/>` : '📰'}</div>
+            <div class="art-info">
+              <div class="art-info-title">${escapeHtml(a.titre)}</div>
+              <div class="art-info-meta">
+                <span>📅 ${a.date?.toDate ? a.date.toDate().toLocaleDateString('fr-FR') : ''}</span>
+                <span>${a.categorie || ''}</span>
+                <span class="${a.publie ? 'status-pub' : 'status-draft'}">${a.publie ? 'Publié' : 'Brouillon'}</span>
+              </div>
+            </div>
+            <div class="art-btns">
+              <button class="mini-btn" onclick="editArticle('${a.id}')">✏️</button>
+              <button class="mini-btn" onclick="togglePub('${a.id}', ${a.publie})">${a.publie ? '🔒' : '🌐'}</button>
+              <button class="mini-btn del" onclick="delArticle('${a.id}')">🗑️</button>
+            </div>
           </div>
-          <div class="art-btns">
-            <button class="mini-btn" onclick="editArticle('${a.id}')">✏️</button>
-            <button class="mini-btn" onclick="togglePub('${a.id}',${a.publie})">${a.publie?'🔒':'🌐'}</button>
-            <button class="mini-btn del" onclick="delArticle('${a.id}')">🗑️</button>
-          </div>
-        </div>`).join('') + '</div>';
-    } catch(e) { wrap.innerHTML = '<p style="color:var(--danger)">Erreur chargement</p>'; }
+        `).join('')}
+      </div>`;
+    } catch (err) {
+      console.error(err);
+      wrap.innerHTML = '<p style="color:var(--danger);padding:1rem;">Erreur de chargement.</p>';
+    }
   };
+
+  // ──────────────── ÉDITION D'UN ARTICLE ────────────────
   window.editArticle = async (id) => {
-    const snap = await getDoc(doc(db, 'actualites', id));
-    if (!snap.exists()) return;
-    const a = snap.data();
-    editingId = id;
-    document.getElementById('fTitre').value = a.titre || '';
-    document.getElementById('fCategorie').value = a.categorie || '';
-    document.getElementById('editorArea').innerHTML = a.contenu || '';
-    if (a.imageUrl) { document.getElementById('fImageUrl').value = a.imageUrl; previewImg(a.imageUrl); }
-    document.getElementById('formTitle').textContent = '✏️ Modifier l\'actualité';
-    document.getElementById('formMode').textContent = 'MODIFICATION';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const docSnap = await getDoc(doc(db, 'actualites', id));
+      if (!docSnap.exists()) {
+        toast("⚠️ Article introuvable", "error");
+        return;
+      }
+      const a = docSnap.data();
+      editingId = id;
+      document.getElementById('fTitre').value = a.titre || '';
+      document.getElementById('fCategorie').value = a.categorie || '';
+      document.getElementById('editorArea').innerHTML = a.contenu || '';
+      if (a.imageUrl) {
+        document.getElementById('fImageUrl').value = a.imageUrl;
+        previewImg(a.imageUrl);
+      } else {
+        document.getElementById('fImageUrl').value = '';
+        document.getElementById('imgPreview').style.display = 'none';
+      }
+      document.getElementById('formTitle').textContent = '✏️ Modifier l\'actualité';
+      document.getElementById('formMode').textContent = 'MODIFICATION';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error(err);
+      toast("Erreur chargement : " + err.message, "error");
+    }
   };
+
+  // ──────────────── CHANGER STATUT PUBLIÉ / BROUILLON ────────────────
   window.togglePub = async (id, current) => {
-    await updateDoc(doc(db, 'actualites', id), { publie: !current });
-    toast(!current ? '🌐 Actualité publiée' : '🔒 Actualité masquée');
-    loadList();
+    try {
+      await updateDoc(doc(db, 'actualites', id), { publie: !current });
+      toast(!current ? '🌐 Actualité publiée' : '🔒 Actualité masquée');
+      loadList();
+    } catch (err) {
+      console.error(err);
+      toast("Erreur : " + err.message, "error");
+    }
   };
+
+  // ──────────────── SUPPRIMER UN ARTICLE ────────────────
   window.delArticle = async (id) => {
     if (!confirm('Supprimer définitivement cette actualité ?')) return;
-    await deleteDoc(doc(db, 'actualites', id));
-    toast('🗑️ Supprimée');
-    loadList();
+    try {
+      await deleteDoc(doc(db, 'actualites', id));
+      toast('🗑️ Supprimée');
+      loadList();
+    } catch (err) {
+      console.error(err);
+      toast("Erreur suppression", "error");
+    }
   };
-  function toast(msg) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
-  function showMsg(msg,type) { const el=document.getElementById('formMsg'); el.textContent=msg; el.className='form-msg '+type; el.style.display='block'; setTimeout(()=>el.style.display='none',4000); }
-  function livePreview() { document.getElementById('previewPane').innerHTML = document.getElementById('editorArea').innerHTML || '<em>Aperçu vide…</em>'; }
-  function fmt(cmd) { document.execCommand(cmd,false,null); document.getElementById('editorArea').focus(); }
-  function fmtBlock(tag) { document.execCommand('formatBlock',false,'<'+tag+'>'); document.getElementById('editorArea').focus(); }
-  window.fmt = fmt; window.fmtBlock = fmtBlock; window.livePreview = livePreview;
+
+  // ──────────────── OUTILS ÉDITEUR ────────────────
+  window.fmt = (cmd) => {
+    document.execCommand(cmd, false, null);
+    document.getElementById('editorArea').focus();
+    livePreview();
+  };
+  window.fmtBlock = (tag) => {
+    document.execCommand('formatBlock', false, '<' + tag + '>');
+    document.getElementById('editorArea').focus();
+    livePreview();
+  };
+  window.livePreview = () => {
+    const c = document.getElementById('editorArea').innerHTML;
+    document.getElementById('previewPane').innerHTML = c || '<em style="color:var(--text-muted)">Aperçu vide…</em>';
+  };
+
+  // ──────────────── UTILITAIRES ────────────────
+  function toast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'show';
+    if (type === 'error') t.classList.add('error');
+    else t.classList.remove('error');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+  function showMsg(msg, type) {
+    const el = document.getElementById('formMsg');
+    el.textContent = msg;
+    el.className = 'form-msg ' + type;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 5000);
+  }
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  // Initialisation : on s'assure que l'éditeur a un aperçu
+  window.livePreview();
 </script>
 </body>
 </html>
